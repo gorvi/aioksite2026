@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SCL-90 Serial Number Input</title>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+            },
+            fontFamily: {
+              "display": ["Inter", "Noto Sans", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased text-slate-900 dark:text-slate-100 h-screen flex flex-col overflow-hidden">
+<!-- Main Container -->
+<div class="relative flex flex-col h-full w-full max-w-md mx-auto bg-white dark:bg-[#152329] shadow-2xl overflow-y-auto">
+<!-- Status Bar Placeholders (iOS style simulation) -->
+<div class="h-12 w-full flex items-end justify-between px-6 pb-2 select-none pointer-events-none">
+<span class="text-xs font-semibold dark:text-white/80">9:41</span>
+<div class="flex gap-1.5 items-center">
+<span class="material-symbols-outlined text-[18px] dark:text-white/80">signal_cellular_alt</span>
+<span class="material-symbols-outlined text-[18px] dark:text-white/80">wifi</span>
+<span class="material-symbols-outlined text-[18px] dark:text-white/80">battery_full</span>
+</div>
+</div>
+<!-- Top App Bar -->
+<div class="flex items-center px-4 py-2 justify-between sticky top-0 bg-white/80 dark:bg-[#152329]/80 backdrop-blur-md z-10">
+<button class="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-slate-900 dark:text-slate-100">arrow_back_ios_new</span>
+</button>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-tight flex-1 text-center pr-10">SCL-90</h2>
+<!-- Spacer to balance back button -->
+</div>
+<!-- Content Wrapper -->
+<div class="flex-1 flex flex-col items-center pt-8 px-6 pb-6">
+<!-- Hero Illustration / Icon -->
+<div class="mb-8 w-24 h-24 rounded-3xl bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[48px]">psychology_alt</span>
+</div>
+<!-- Headline -->
+<h1 class="text-slate-900 dark:text-white tracking-tight text-2xl font-bold leading-tight text-center mb-3">
+                心理健康症状自评量表
+            </h1>
+<!-- Description -->
+<div class="flex items-center gap-2 justify-center mb-10">
+<span class="material-symbols-outlined text-slate-400 dark:text-slate-500 text-sm">schedule</span>
+<p class="text-slate-500 dark:text-slate-400 text-sm font-medium leading-normal text-center">
+                    90道题目 • 预计耗时 10-15 分钟
+                </p>
+</div>
+<!-- Input Section -->
+<div class="w-full space-y-2">
+<label class="block text-sm font-semibold text-slate-700 dark:text-slate-300 ml-1">
+                    测评序列号
+                </label>
+<div class="relative flex items-center w-full">
+<input class="form-input flex w-full rounded-xl border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-primary focus:ring-primary h-14 pl-4 pr-12 text-base shadow-sm transition-all duration-200" placeholder="请输入您的测评序列号" type="text" value=""/>
+<button aria-label="Paste serial number" class="absolute right-0 top-0 bottom-0 px-4 text-primary hover:text-primary/80 transition-colors flex items-center justify-center rounded-r-xl">
+<span class="material-symbols-outlined text-[20px]">content_paste</span>
+</button>
+</div>
+<!-- Error Message (Hidden by default, showing static example here for context per user request) -->
+<!-- Ideally controlled by JS state: 'hidden' class added/removed -->
+<div class="flex items-start gap-2 pt-1 px-1 opacity-0 pointer-events-none transition-opacity duration-200">
+<span class="material-symbols-outlined text-red-500 text-[16px] mt-0.5">error</span>
+<p class="text-red-500 text-xs font-medium leading-tight">序列号无效，请重新输入</p>
+</div>
+</div>
+<!-- Spacer pushes the button to the bottom if content is short, but ensures it's reachable -->
+<div class="flex-1 min-h-[40px]"></div>
+<!-- Action Button -->
+<button class="w-full bg-primary hover:bg-sky-500 active:scale-[0.98] transition-all duration-200 text-white font-semibold h-14 rounded-xl shadow-lg shadow-primary/20 flex items-center justify-center gap-2 text-lg">
+<span>开始测评</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+<!-- Footer Text -->
+<p class="text-slate-300 dark:text-slate-600 text-xs text-center mt-6">
+                v2.4.0 • Secure Assessment
+            </p>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Submission Confirmation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13b6ec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 48;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-[#0d181b] dark:text-[#f6f8f8] antialiased overflow-hidden selection:bg-primary/30">
+<div class="relative flex h-screen w-full flex-col group/design-root overflow-hidden">
+<!-- Main Content Area: Centered Vertically to focus attention -->
+<!-- Based on EmptyState component structure but centered for a modal feel -->
+<div class="flex flex-1 flex-col items-center justify-center px-6 pb-12 pt-16">
+<!-- Visual Anchor: Reassuring Iconography -->
+<!-- Modified from Image div to Icon container for "soft, reassuring" requirement -->
+<div class="mb-10 flex h-32 w-32 items-center justify-center rounded-full bg-white dark:bg-[#19272c] shadow-[0_8px_30px_rgb(0,0,0,0.04)] dark:shadow-none ring-1 ring-black/5 dark:ring-white/10" data-alt="Icon of a completed document with a checkmark indicating readiness">
+<span class="material-symbols-outlined text-[64px] text-primary">
+                    assignment_turned_in
+                </span>
+</div>
+<!-- Text Content -->
+<div class="flex max-w-[320px] flex-col items-center gap-3 text-center">
+<h1 class="text-2xl font-bold leading-tight tracking-tight text-[#0d181b] dark:text-white">
+                    是否确认提交本次测评？
+                </h1>
+<p class="text-sm font-medium leading-relaxed text-[#0d181b]/60 dark:text-white/60">
+                    请确保您已回答所有问题，<br/>提交后无法更改。
+                </p>
+</div>
+</div>
+<!-- Bottom Action Area -->
+<!-- Stacked Buttons for clear hierarchy -->
+<div class="w-full bg-background-light dark:bg-background-dark px-6 pb-8 pt-4">
+<div class="mx-auto flex w-full max-w-[480px] flex-col gap-3">
+<!-- Primary Action Button -->
+<!-- Reuse styles from SingleButton: Solid Primary -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-primary px-5 text-white shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 active:scale-[0.98]">
+<span class="text-base font-bold tracking-[0.015em]">确认提交</span>
+</button>
+<!-- Secondary Action Button -->
+<!-- Reuse styles from SingleButton: Transparent/Ghost -->
+<button class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-xl h-14 bg-transparent px-5 text-[#0d181b]/70 dark:text-white/70 transition-all hover:bg-black/5 dark:hover:bg-white/5 active:scale-[0.98]">
+<span class="text-base font-bold tracking-[0.015em]">返回修改</span>
+</button>
+</div>
+<!-- Bottom safe area spacing -->
+<div class="h-2 w-full"></div>
+</div>
+</div>
+</body></html>

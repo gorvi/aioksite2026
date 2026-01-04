@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ADHD倾向自测 · 结果页</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&amp;family=Noto+Sans+SC:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              "display": ["Inter", "Noto Sans SC", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-50 antialiased selection:bg-primary/20">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<!-- Navigation -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-solid border-b-slate-200 dark:border-b-slate-800 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md px-6 py-3 lg:px-20">
+<div class="flex items-center gap-4">
+<div class="flex items-center justify-center size-8 rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h2 class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-tight">MindScale</h2>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<nav class="flex items-center gap-6">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">首页</a>
+<a class="text-slate-900 dark:text-white text-sm font-medium" href="#">自测历史</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary transition-colors text-sm font-medium" href="#">关于我们</a>
+</nav>
+<div class="flex items-center gap-3">
+<div class="h-8 w-px bg-slate-200 dark:bg-slate-700"></div>
+<div class="flex items-center gap-2 cursor-pointer">
+<div class="size-8 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden bg-cover bg-center" data-alt="User avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuC6DtvkRaHHdRkOIxRFcuNZiKo8j-TgC1vbR0dAq-p7z-4IkhYLqjcgGm6gMfNePiZw2wpZTxkpReKgXdukh8RgMdXBL_1WDlFmao4CW8k8sCW0U7OZ4w26OzGUIT1d8heikOEHH1HEVIqBkT4aXSWNUTveZ-QOYquLLZs50N9tXTm4PVn8Hpw72PQxUOdRB-MVccz9fBEXW2Sqpqay-3MBwhcNGmih2SQYNsb1D4LSabIqAZPlcQa9PhlNKKyywyDvBOcsHXjOlpXG");'></div>
+<span class="text-sm font-medium text-slate-700 dark:text-slate-300">用户8392</span>
+</div>
+</div>
+</div>
+</header>
+<main class="flex-1 px-4 py-8 lg:px-40 lg:py-10">
+<div class="mx-auto max-w-[960px] flex flex-col gap-8">
+<!-- Page Heading -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
+<div class="flex flex-col gap-2">
+<h1 class="text-slate-900 dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-tight">ADHD倾向自测结果</h1>
+<div class="flex items-center gap-3 text-sm text-slate-500 dark:text-slate-400">
+<span class="flex items-center gap-1"><span class="material-symbols-outlined text-[18px]">calendar_today</span> 2023年10月24日</span>
+<span class="w-1 h-1 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+<span>参考ID：839201</span>
+</div>
+</div>
+<div class="flex gap-3">
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 text-sm font-bold hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
+<span class="material-symbols-outlined text-[20px]">print</span>
+<span class="hidden sm:inline">打印报告</span>
+</button>
+<button class="flex items-center justify-center gap-2 rounded-lg h-10 px-4 bg-primary/10 text-primary hover:bg-primary/20 text-sm font-bold transition-colors">
+<span class="material-symbols-outlined text-[20px]">refresh</span>
+<span>重新测试</span>
+</button>
+</div>
+</div>
+<!-- Summary Card -->
+<div class="overflow-hidden rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800">
+<div class="flex flex-col md:flex-row">
+<!-- Left: Visual Score -->
+<div class="md:w-1/3 bg-primary/5 dark:bg-primary/10 p-8 flex flex-col items-center justify-center text-center gap-4 relative overflow-hidden">
+<!-- Abstract background decoration -->
+<div class="absolute top-0 left-0 w-full h-full opacity-30 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent"></div>
+<div class="relative z-10 size-32 rounded-full border-[6px] border-primary/20 flex items-center justify-center bg-white dark:bg-slate-800 shadow-sm">
+<div class="flex flex-col items-center">
+<span class="text-4xl font-black text-primary">68</span>
+<span class="text-xs font-medium text-slate-400 uppercase tracking-wider">/100</span>
+</div>
+</div>
+<div class="relative z-10">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">中度倾向</h3>
+<p class="text-sm text-slate-500 dark:text-slate-400 mt-1">注意力分散为主型</p>
+</div>
+</div>
+<!-- Right: Text Content -->
+<div class="md:w-2/3 p-6 md:p-8 flex flex-col justify-center gap-4">
+<h3 class="text-xl font-bold text-slate-900 dark:text-white">整体评估结论</h3>
+<p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+                                根据您的回答，您在<strong class="text-primary font-semibold">注意力集中</strong>方面表现出一定的困难，但在多动和冲动维度上表现较为平稳。这表明您可能属于“注意力缺陷为主型”的表现模式。这种类型通常表现为容易分心、难以完成枯燥任务，而较少出现明显的坐立不安。
+                            </p>
+<div class="flex flex-col sm:flex-row gap-3 mt-2">
+<div class="flex items-center gap-2 px-3 py-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-amber-500">lightbulb</span>
+<span class="text-xs font-medium text-slate-700 dark:text-slate-300">非医疗诊断结果</span>
+</div>
+<div class="flex items-center gap-2 px-3 py-2 bg-slate-50 dark:bg-slate-800 rounded-lg border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-green-500">psychology_alt</span>
+<span class="text-xs font-medium text-slate-700 dark:text-slate-300">仅供自我认知参考</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Charts & Stats -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Chart Section -->
+<div class="lg:col-span-2 rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 p-6">
+<div class="flex items-center justify-between mb-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white">各维度详细得分</h3>
+<span class="text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-slate-500 dark:text-slate-400">百分制</span>
+</div>
+<div class="space-y-6">
+<!-- Bar Item -->
+<div class="group">
+<div class="flex justify-between mb-2">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-primary">blur_on</span>
+                                        注意力不集中
+                                    </span>
+<span class="text-sm font-bold text-primary">75%</span>
+</div>
+<div class="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500" style="width: 75%"></div>
+</div>
+<p class="mt-2 text-xs text-slate-500 dark:text-slate-400">经常遗忘日常琐事，难以在谈话或阅读中保持专注。</p>
+</div>
+<!-- Bar Item -->
+<div class="group">
+<div class="flex justify-between mb-2">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-indigo-500">bolt</span>
+                                        多动倾向
+                                    </span>
+<span class="text-sm font-bold text-indigo-500">30%</span>
+</div>
+<div class="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-indigo-500 rounded-full transition-all duration-500" style="width: 30%"></div>
+</div>
+<p class="mt-2 text-xs text-slate-500 dark:text-slate-400">偶尔感到坐立不安，但通常能控制身体活动。</p>
+</div>
+<!-- Bar Item -->
+<div class="group">
+<div class="flex justify-between mb-2">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-teal-500">touch_app</span>
+                                        冲动控制
+                                    </span>
+<span class="text-sm font-bold text-teal-500">45%</span>
+</div>
+<div class="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-teal-500 rounded-full transition-all duration-500" style="width: 45%"></div>
+</div>
+<p class="mt-2 text-xs text-slate-500 dark:text-slate-400">有时会抢话或在排队时感到不耐烦。</p>
+</div>
+<!-- Bar Item -->
+<div class="group">
+<div class="flex justify-between mb-2">
+<span class="text-sm font-bold text-slate-700 dark:text-slate-200 flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-rose-500">mood</span>
+                                        情绪调节
+                                    </span>
+<span class="text-sm font-bold text-rose-500">60%</span>
+</div>
+<div class="h-3 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-rose-500 rounded-full transition-all duration-500" style="width: 60%"></div>
+</div>
+<p class="mt-2 text-xs text-slate-500 dark:text-slate-400">对于挫折的耐受度较低，情绪波动有时较大。</p>
+</div>
+</div>
+</div>
+<!-- Side Panel: Key Characteristics -->
+<div class="lg:col-span-1 flex flex-col gap-4">
+<div class="rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 p-6 flex flex-col h-full">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-4">主要表现特征</h3>
+<div class="flex flex-col gap-3 flex-1">
+<div class="flex gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary mt-0.5 text-[20px]">check_circle</span>
+<span class="text-sm text-slate-700 dark:text-slate-300">启动困难：面对复杂任务时常拖延。</span>
+</div>
+<div class="flex gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary mt-0.5 text-[20px]">check_circle</span>
+<span class="text-sm text-slate-700 dark:text-slate-300">时空感弱：经常低估任务所需时间。</span>
+</div>
+<div class="flex gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary mt-0.5 text-[20px]">check_circle</span>
+<span class="text-sm text-slate-700 dark:text-slate-300">细节疏漏：工作或学习中常犯粗心错误。</span>
+</div>
+<div class="flex gap-3 p-3 rounded-lg bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700">
+<span class="material-symbols-outlined text-primary mt-0.5 text-[20px]">check_circle</span>
+<span class="text-sm text-slate-700 dark:text-slate-300">物品遗失：经常找不到手机、钥匙等。</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Detailed Analysis (Accordions) -->
+<div class="rounded-xl bg-white dark:bg-slate-900 shadow-sm border border-slate-100 dark:border-slate-800 p-6">
+<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-6">深度解读与理解</h3>
+<div class="flex flex-col gap-3">
+<details class="group rounded-lg bg-slate-50 dark:bg-slate-800 open:bg-white dark:open:bg-slate-900 border border-transparent open:border-slate-200 dark:open:border-slate-700 transition-all duration-300" open="">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-medium text-slate-900 dark:text-white">
+<div class="flex items-center gap-3">
+<span class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">visibility</span>
+</span>
+<span>这不仅是“不专心”，而是注意力的调节机制差异</span>
+</div>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="px-4 pb-4 pl-[4.25rem] text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                                您可能经常责怪自己“为什么不能像别人一样专心”。其实，ADHD倾向者的神经系统往往需要更高强度的刺激才能“启动”。这并不是因为您懒惰或缺乏意愿，而是大脑的多巴胺传递机制运作方式不同。接纳这一生理差异，是改善的第一步。
+                            </div>
+</details>
+<details class="group rounded-lg bg-slate-50 dark:bg-slate-800 open:bg-white dark:open:bg-slate-900 border border-transparent open:border-slate-200 dark:open:border-slate-700 transition-all duration-300">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-medium text-slate-900 dark:text-white">
+<div class="flex items-center gap-3">
+<span class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">battery_charging_full</span>
+</span>
+<span>关于精力管理的误区</span>
+</div>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="px-4 pb-4 pl-[4.25rem] text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                                您可能发现自己在感兴趣的事情上可以“过度专注”数小时，而在枯燥任务上几分钟都坚持不了。这是典型的ADHD特征。与其强迫自己补短板，不如尝试将枯燥任务游戏化，或者寻找能发挥您发散性思维优势的工作环境。
+                            </div>
+</details>
+<details class="group rounded-lg bg-slate-50 dark:bg-slate-800 open:bg-white dark:open:bg-slate-900 border border-transparent open:border-slate-200 dark:open:border-slate-700 transition-all duration-300">
+<summary class="flex cursor-pointer list-none items-center justify-between p-4 font-medium text-slate-900 dark:text-white">
+<div class="flex items-center gap-3">
+<span class="flex items-center justify-center size-8 rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">diversity_3</span>
+</span>
+<span>神经多样性的视角</span>
+</div>
+<span class="material-symbols-outlined transition-transform duration-300 group-open:rotate-180 text-slate-400">expand_more</span>
+</summary>
+<div class="px-4 pb-4 pl-[4.25rem] text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                                现代心理学倾向于将ADHD视为“神经多样性”的一种，而非单纯的疾病。这意味着您可能拥有独特的创造力、直觉和跳跃性思维。了解自己的使用说明书，比试图把自己变成“标准件”更重要。
+                            </div>
+</details>
+</div>
+</div>
+<!-- Actionable Advice Grid -->
+<div>
+<h3 class="text-xl font-bold text-slate-900 dark:text-white mb-6">实用改善建议</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<!-- Card 1 -->
+<div class="group flex flex-col p-5 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-10 rounded-lg bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">timer</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">番茄工作法</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-normal">将工作切分为25分钟专注+5分钟休息，降低任务启动门槛。</p>
+</div>
+<!-- Card 2 -->
+<div class="group flex flex-col p-5 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">list_alt</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">视觉化清单</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-normal">将任务写在白板或便利贴上，放在视线范围内，增强记忆线索。</p>
+</div>
+<!-- Card 3 -->
+<div class="group flex flex-col p-5 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-10 rounded-lg bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">headphones</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">白噪音环境</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-normal">使用白噪音或无歌词的背景音乐，屏蔽干扰，提升专注度。</p>
+</div>
+<!-- Card 4 -->
+<div class="group flex flex-col p-5 bg-white dark:bg-slate-900 rounded-xl border border-slate-100 dark:border-slate-800 shadow-sm hover:shadow-md transition-shadow">
+<div class="size-10 rounded-lg bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4">
+<span class="material-symbols-outlined">sports_gymnastics</span>
+</div>
+<h4 class="font-bold text-slate-900 dark:text-white mb-2">有氧运动</h4>
+<p class="text-sm text-slate-500 dark:text-slate-400 leading-normal">适度的有氧运动能促进多巴胺分泌，自然改善大脑的执行功能。</p>
+</div>
+</div>
+</div>
+<!-- Footer / Disclaimer -->
+<div class="mt-8 p-6 bg-slate-100 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-800">
+<h5 class="text-sm font-bold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-slate-500 text-[18px]">info</span>
+                        免责声明
+                    </h5>
+<p class="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                        本测试基于ASRS v1.1及相关心理学量表编制，旨在帮助您了解自己的注意力及行为倾向，<strong class="text-slate-700 dark:text-slate-300">测试结果不能作为医学诊断依据</strong>。如果您发现这些症状严重影响了您的日常生活、工作或人际关系，建议咨询专业的精神科医生或心理咨询师进行全面评估。
+                    </p>
+</div>
+<!-- Floating Bottom Bar (Mobile/Tablet Friendly, good for CTA) -->
+<div class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6 pb-12">
+<button class="w-full sm:w-auto min-w-[200px] h-12 rounded-lg bg-primary text-white font-bold text-base hover:bg-blue-600 transition-colors shadow-lg shadow-primary/20 flex items-center justify-center gap-2">
+<span>保存结果到账号</span>
+<span class="material-symbols-outlined text-[20px]">save_alt</span>
+</button>
+<button class="w-full sm:w-auto min-w-[200px] h-12 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-base hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors flex items-center justify-center gap-2">
+<span>分享给朋友</span>
+<span class="material-symbols-outlined text-[20px]">share</span>
+</button>
+</div>
+</div>
+</main>
+</div>
+</body></html>

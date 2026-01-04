@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assessment Records</title>
+<!-- Google Fonts: Inter -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13b6ec",
+              "background-light": "#f6f8f8",
+              "background-dark": "#101d22",
+              "card-light": "#ffffff",
+              "card-dark": "#1a2c32",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+            boxShadow: {
+                "soft": "0 2px 8px -2px rgba(19, 182, 236, 0.1)",
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark min-h-screen text-slate-900 dark:text-slate-100 antialiased font-display">
+<div class="relative flex h-full w-full max-w-md mx-auto flex-col group/design-root overflow-x-hidden min-h-screen border-x border-slate-100 dark:border-slate-800">
+<!-- Top Navigation Bar -->
+<header class="sticky top-0 z-20 bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-slate-200/50 dark:border-slate-800/50">
+<button class="flex items-center justify-center w-10 h-10 -ml-2 rounded-full text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-2xl">arrow_back_ios_new</span>
+</button>
+<h1 class="text-lg font-bold text-slate-900 dark:text-white tracking-tight absolute left-1/2 -translate-x-1/2">
+                测评记录
+            </h1>
+<div class="w-8"></div> <!-- Spacer for visual balance -->
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col p-4 gap-4">
+<!-- List Item 1 -->
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-soft hover:shadow-md transition-all duration-200 cursor-pointer active:scale-[0.99] border border-transparent hover:border-primary/20 dark:border-slate-800">
+<div class="flex items-center justify-between gap-4">
+<!-- Left: Date & Time -->
+<div class="flex flex-col gap-1.5 flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_today</span>
+<h3 class="text-base font-semibold text-slate-900 dark:text-white truncate">2023-10-24</h3>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 pl-[28px]">14:30</p>
+</div>
+<!-- Right: Score & Status -->
+<div class="flex items-center gap-3 shrink-0">
+<div class="flex flex-col items-end gap-1">
+<span class="text-2xl font-bold text-primary tabular-nums tracking-tight leading-none">1.8</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary dark:bg-primary/20">
+                                正常
+                            </span>
+</div>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- List Item 2 -->
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-soft hover:shadow-md transition-all duration-200 cursor-pointer active:scale-[0.99] border border-transparent hover:border-amber-200 dark:border-slate-800">
+<div class="flex items-center justify-between gap-4">
+<!-- Left: Date & Time -->
+<div class="flex flex-col gap-1.5 flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-amber-500/80 text-[20px]">calendar_today</span>
+<h3 class="text-base font-semibold text-slate-900 dark:text-white truncate">2023-09-15</h3>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 pl-[28px]">09:15</p>
+</div>
+<!-- Right: Score & Status -->
+<div class="flex items-center gap-3 shrink-0">
+<div class="flex flex-col items-end gap-1">
+<span class="text-2xl font-bold text-amber-500 dark:text-amber-400 tabular-nums tracking-tight leading-none">2.1</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400">
+                                轻度
+                            </span>
+</div>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600">chevron_right</span>
+</div>
+</div>
+</div>
+<!-- List Item 3 -->
+<div class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-soft hover:shadow-md transition-all duration-200 cursor-pointer active:scale-[0.99] border border-transparent hover:border-primary/20 dark:border-slate-800">
+<div class="flex items-center justify-between gap-4">
+<!-- Left: Date & Time -->
+<div class="flex flex-col gap-1.5 flex-1 min-w-0">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-primary text-[20px]">calendar_today</span>
+<h3 class="text-base font-semibold text-slate-900 dark:text-white truncate">2023-08-01</h3>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400 pl-[28px]">16:45</p>
+</div>
+<!-- Right: Score & Status -->
+<div class="flex items-center gap-3 shrink-0">
+<div class="flex flex-col items-end gap-1">
+<span class="text-2xl font-bold text-primary tabular-nums tracking-tight leading-none">1.5</span>
+<span class="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary dark:bg-primary/20">
+                                正常
+                            </span>
+</div>
+<span class="material-symbols-outlined text-slate-300 dark:text-slate-600">chevron_right</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer / Disclaimer -->
+<footer class="p-6 mt-auto">
+<div class="flex flex-col items-center gap-2 opacity-60">
+<span class="material-symbols-outlined text-slate-400 text-xl">privacy_tip</span>
+<p class="text-xs text-center text-slate-500 dark:text-slate-400 leading-relaxed max-w-[240px]">
+                    为保护您的隐私安全<br/>测评记录仅在本地保存 30 天
+                </p>
+</div>
+</footer>
+</div>
+</body></html>

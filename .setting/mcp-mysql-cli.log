@@ -1,0 +1,32 @@
+2026-01-01T15:09:42.012Z | INFO | Starting MCP MySQL server from: /Users/ghw/.npm/_npx/080bc9f59514dad9/node_modules/@liangshanli/mcp-server-mysql/src/server-final.js
+2026-01-01T15:09:42.015Z | INFO | Starting MCP MySQL server with environment: | {"MYSQL_HOST":"127.0.0.1","MYSQL_PORT":"3306","MYSQL_USER":"many_ceshi","MYSQL_DATABASE":"many_ceshi","READONLY":"false","ALLOW_DDL":"false","ALLOW_DROP":"false","ALLOW_DELETE":"false","TOOL_PREFIX":"(not set)","PROJECT_NAME":"(not set)","MCP_LOG_DIR":"./.setting","MCP_DDL_LOG_FILE":"ddl.sql"}
+2026-01-01T15:09:42.016Z | INFO | MCP MySQL server process started with PID: 56241
+2026-01-01T15:09:42.016Z | INFO | Signal handlers registered for SIGINT and SIGTERM
+2026-01-01T15:09:42.016Z | INFO | Press Ctrl+C to gracefully shutdown the server
+2026-01-01T15:25:54.144Z | INFO | Received SIGTERM, shutting down server...
+2026-01-01T15:25:54.149Z | INFO | Sent SIGTERM signal to server process 56241
+2026-01-01T15:25:54.157Z | INFO | MCP MySQL server exited with code: 1
+2026-01-01T15:25:54.159Z | ERROR | Uncaught exception in CLI: | {"error":"write EPIPE","stack":"Error: write EPIPE\n    at afterWriteDispatched (node:internal/stream_base_commons:160:15)\n    at writeGeneric (node:internal/stream_base_commons:151:3)\n    at Socket._writeGeneric (node:net:952:11)\n    at Socket._write (node:net:964:8)\n    at writeOrBuffer (node:internal/streams/writable:564:12)\n    at _write (node:internal/streams/writable:493:10)\n    at Writable.write (node:internal/streams/writable:502:10)\n    at console.value (node:internal/console/constructor:304:16)\n    at console.warn (node:internal/console/constructor:384:26)\n    at writeLog (/Users/ghw/.npm/_npx/080bc9f59514dad9/node_modules/@liangshanli/mcp-server-mysql/bin/cli.js:55:11)"}
+2026-01-01T15:25:54.160Z | INFO | CLI process exiting with code: 1
+2026-01-01T15:31:13.054Z | INFO | Starting MCP MySQL server from: /Users/ghw/.npm/_npx/080bc9f59514dad9/node_modules/@liangshanli/mcp-server-mysql/src/server-final.js
+2026-01-01T15:31:13.056Z | INFO | Starting MCP MySQL server with environment: | {"MYSQL_HOST":"127.0.0.1","MYSQL_PORT":"3306","MYSQL_USER":"many_ceshi","MYSQL_DATABASE":"many_ceshi","READONLY":"false","ALLOW_DDL":"false","ALLOW_DROP":"false","ALLOW_DELETE":"false","TOOL_PREFIX":"(not set)","PROJECT_NAME":"(not set)","MCP_LOG_DIR":"./.setting","MCP_DDL_LOG_FILE":"ddl.sql"}
+2026-01-01T15:31:13.057Z | INFO | MCP MySQL server process started with PID: 56751
+2026-01-01T15:31:13.057Z | INFO | Signal handlers registered for SIGINT and SIGTERM
+2026-01-01T15:31:13.058Z | INFO | Press Ctrl+C to gracefully shutdown the server
+2026-01-01T15:37:57.224Z | INFO | Received SIGTERM, shutting down server...
+2026-01-01T15:37:57.228Z | INFO | Sent SIGTERM signal to server process 56751
+2026-01-01T15:37:57.231Z | INFO | MCP MySQL server exited with code: 0
+2026-01-01T15:37:57.233Z | INFO | Server requested restart, restarting...
+2026-01-01T15:37:57.233Z | ERROR | Uncaught exception in CLI: | {"error":"write EPIPE","stack":"Error: write EPIPE\n    at afterWriteDispatched (node:internal/stream_base_commons:160:15)\n    at writeGeneric (node:internal/stream_base_commons:151:3)\n    at Socket._writeGeneric (node:net:952:11)\n    at Socket._write (node:net:964:8)\n    at writeOrBuffer (node:internal/streams/writable:564:12)\n    at _write (node:internal/streams/writable:493:10)\n    at Writable.write (node:internal/streams/writable:502:10)\n    at console.value (node:internal/console/constructor:304:16)\n    at console.warn (node:internal/console/constructor:384:26)\n    at writeLog (/Users/ghw/.npm/_npx/080bc9f59514dad9/node_modules/@liangshanli/mcp-server-mysql/bin/cli.js:55:11)"}
+2026-01-01T15:37:57.234Z | INFO | CLI process exiting with code: 1
+2026-01-01T15:55:18.849Z | INFO | Starting MCP MySQL server from: /Users/ghw/.npm/_npx/080bc9f59514dad9/node_modules/@liangshanli/mcp-server-mysql/src/server-final.js
+2026-01-01T15:55:18.851Z | INFO | Starting MCP MySQL server with environment: | {"MYSQL_HOST":"106.54.60.14","MYSQL_PORT":"3306","MYSQL_USER":"many_ceshi","MYSQL_DATABASE":"many_ceshi","READONLY":"false","ALLOW_DDL":"false","ALLOW_DROP":"false","ALLOW_DELETE":"false","TOOL_PREFIX":"(not set)","PROJECT_NAME":"(not set)","MCP_LOG_DIR":"./.setting","MCP_DDL_LOG_FILE":"ddl.sql"}
+2026-01-01T15:55:18.852Z | INFO | MCP MySQL server process started with PID: 58106
+2026-01-01T15:55:18.852Z | INFO | Signal handlers registered for SIGINT and SIGTERM
+2026-01-01T15:55:18.852Z | INFO | Press Ctrl+C to gracefully shutdown the server
+2026-01-01T16:05:26.481Z | INFO | Received SIGTERM, shutting down server...
+2026-01-01T16:05:26.482Z | INFO | Sent SIGTERM signal to server process 58106
+2026-01-01T16:05:26.483Z | INFO | MCP MySQL server exited with code: 0
+2026-01-01T16:05:26.483Z | INFO | Server requested restart, restarting...
+2026-01-01T16:05:26.483Z | ERROR | Uncaught exception in CLI: | {"error":"write EPIPE","stack":"Error: write EPIPE\n    at afterWriteDispatched (node:internal/stream_base_commons:160:15)\n    at writeGeneric (node:internal/stream_base_commons:151:3)\n    at Socket._writeGeneric (node:net:952:11)\n    at Socket._write (node:net:964:8)\n    at writeOrBuffer (node:internal/streams/writable:564:12)\n    at _write (node:internal/streams/writable:493:10)\n    at Writable.write (node:internal/streams/writable:502:10)\n    at console.value (node:internal/console/constructor:304:16)\n    at console.warn (node:internal/console/constructor:384:26)\n    at writeLog (/Users/ghw/.npm/_npx/080bc9f59514dad9/node_modules/@liangshanli/mcp-server-mysql/bin/cli.js:55:11)"}
+2026-01-01T16:05:26.484Z | INFO | CLI process exiting with code: 1

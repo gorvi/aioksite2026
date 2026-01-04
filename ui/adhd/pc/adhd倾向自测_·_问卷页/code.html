@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ADHD倾向自测 · 问卷页</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13b6ec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c32",
+                        "text-main-light": "#0d181b",
+                        "text-main-dark": "#e0e6e8",
+                        "text-sec-light": "#4f656d",
+                        "text-sec-dark": "#9aaeb5",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom radio button styling */
+        .radio-option:checked + div {
+            border-color: #13b6ec;
+            background-color: rgba(19, 182, 236, 0.05);
+        }
+        .radio-option:checked + div .radio-circle {
+            border-color: #13b6ec;
+            background-color: #13b6ec;
+            box-shadow: inset 0 0 0 3px #fff;
+        }
+        /* Dark mode adjustments for custom radio */
+        .dark .radio-option:checked + div {
+            background-color: rgba(19, 182, 236, 0.1);
+        }
+        .dark .radio-option:checked + div .radio-circle {
+            box-shadow: inset 0 0 0 3px #1a2c32;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display text-text-main-light dark:text-text-main-dark antialiased transition-colors duration-200">
+<div class="flex min-h-screen flex-col">
+<!-- Header -->
+<header class="sticky top-0 z-50 flex items-center justify-between border-b border-[#e7f0f3] dark:border-[#2a3c42] bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-4 md:px-10">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-3xl">psychology_alt</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight text-text-main-light dark:text-text-main-dark">ADHD倾向自测</h2>
+</div>
+<div class="flex items-center gap-4">
+<button class="group flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-text-sec-light dark:text-text-sec-dark hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-[20px]">logout</span>
+<span class="hidden sm:inline">退出并保存</span>
+</button>
+<div class="h-8 w-8 rounded-full bg-cover bg-center ring-2 ring-primary/20" data-alt="User profile avatar image" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDIV92uGNY6JQtK_rmKJ6I4mQs68ouvx6_SMCUoF3J37yICcA8Z5RhZ8DMUj5YOEhg1V5K9dFLy1DZFN5e6dVerlvGKxahusLwtnHiAxR1Tdqcl3J8kT9uM-4v8rNPXAlCEDlN-LAXrLRQn3ckkAwz5lqfInTugohDOrM6UWhoeyRaA965Mrq9h-MSL6I9hBnyEv_8MdxAIU6rKMUJcnydipNonXH0NyklkcfPeaKmp3ymtL93ONUGPRQY5G1Gj1rr_C5HEqA63dCiQ");'>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex flex-1 flex-col items-center justify-center p-4 sm:p-6 md:p-8">
+<div class="w-full max-w-[800px] flex flex-col gap-6">
+<!-- Progress Section -->
+<div class="w-full space-y-2">
+<div class="flex items-end justify-between px-1">
+<span class="text-sm font-semibold text-primary">问题 3 / 18</span>
+<span class="text-xs font-medium text-text-sec-light dark:text-text-sec-dark">完成度 16%</span>
+</div>
+<div class="h-2 w-full overflow-hidden rounded-full bg-[#cfe1e7] dark:bg-[#2a3c42]">
+<div class="h-full rounded-full bg-primary transition-all duration-500 ease-out" style="width: 16%;"></div>
+</div>
+</div>
+<!-- Question Card -->
+<div class="relative overflow-hidden rounded-2xl bg-surface-light dark:bg-surface-dark shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] border border-[#e7f0f3] dark:border-[#2a3c42]">
+<!-- Decorative decorative header/accent (Optional visual anchor) -->
+<div class="h-2 w-full bg-gradient-to-r from-primary/60 to-primary"></div>
+<div class="flex flex-col p-6 md:p-10 lg:p-12">
+<!-- Question Text -->
+<div class="mb-10">
+<h1 class="text-2xl font-bold leading-snug tracking-tight text-text-main-light dark:text-text-main-dark md:text-3xl">
+                                在做一件有挑战性的事情时，你是否经常在最后的细节处理上遇到困难？
+                            </h1>
+<p class="mt-4 text-base text-text-sec-light dark:text-text-sec-dark leading-relaxed">
+                                请根据过去 6 个月内的实际感受，选择最符合您情况的选项。
+                            </p>
+</div>
+<!-- Options List -->
+<div class="flex flex-col gap-3">
+<!-- Option 1 -->
+<label class="group relative cursor-pointer">
+<input class="radio-option peer sr-only" name="question_3" type="radio" value="never"/>
+<div class="flex items-center gap-4 rounded-xl border border-[#cfe1e7] dark:border-[#3a4c52] bg-transparent p-4 transition-all duration-200 hover:border-primary/50 hover:bg-background-light dark:hover:bg-background-dark/50">
+<div class="radio-circle flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[#cfe1e7] dark:border-[#4a5c62] transition-all duration-200"></div>
+<span class="text-lg font-medium text-text-main-light dark:text-text-main-dark">从不</span>
+</div>
+</label>
+<!-- Option 2 -->
+<label class="group relative cursor-pointer">
+<input class="radio-option peer sr-only" name="question_3" type="radio" value="rarely"/>
+<div class="flex items-center gap-4 rounded-xl border border-[#cfe1e7] dark:border-[#3a4c52] bg-transparent p-4 transition-all duration-200 hover:border-primary/50 hover:bg-background-light dark:hover:bg-background-dark/50">
+<div class="radio-circle flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[#cfe1e7] dark:border-[#4a5c62] transition-all duration-200"></div>
+<span class="text-lg font-medium text-text-main-light dark:text-text-main-dark">很少</span>
+</div>
+</label>
+<!-- Option 3 -->
+<label class="group relative cursor-pointer">
+<input checked="" class="radio-option peer sr-only" name="question_3" type="radio" value="sometimes"/>
+<div class="flex items-center gap-4 rounded-xl border border-[#cfe1e7] dark:border-[#3a4c52] bg-transparent p-4 transition-all duration-200 hover:border-primary/50 hover:bg-background-light dark:hover:bg-background-dark/50">
+<div class="radio-circle flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[#cfe1e7] dark:border-[#4a5c62] transition-all duration-200"></div>
+<span class="text-lg font-medium text-text-main-light dark:text-text-main-dark">有时</span>
+</div>
+</label>
+<!-- Option 4 -->
+<label class="group relative cursor-pointer">
+<input class="radio-option peer sr-only" name="question_3" type="radio" value="often"/>
+<div class="flex items-center gap-4 rounded-xl border border-[#cfe1e7] dark:border-[#3a4c52] bg-transparent p-4 transition-all duration-200 hover:border-primary/50 hover:bg-background-light dark:hover:bg-background-dark/50">
+<div class="radio-circle flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[#cfe1e7] dark:border-[#4a5c62] transition-all duration-200"></div>
+<span class="text-lg font-medium text-text-main-light dark:text-text-main-dark">经常</span>
+</div>
+</label>
+<!-- Option 5 -->
+<label class="group relative cursor-pointer">
+<input class="radio-option peer sr-only" name="question_3" type="radio" value="very_often"/>
+<div class="flex items-center gap-4 rounded-xl border border-[#cfe1e7] dark:border-[#3a4c52] bg-transparent p-4 transition-all duration-200 hover:border-primary/50 hover:bg-background-light dark:hover:bg-background-dark/50">
+<div class="radio-circle flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[#cfe1e7] dark:border-[#4a5c62] transition-all duration-200"></div>
+<span class="text-lg font-medium text-text-main-light dark:text-text-main-dark">非常频繁</span>
+</div>
+</label>
+</div>
+</div>
+<!-- Card Footer / Navigation -->
+<div class="border-t border-[#e7f0f3] dark:border-[#2a3c42] bg-[#fcfdfe] dark:bg-[#152328] px-6 py-4 md:px-10 md:py-6">
+<div class="flex flex-col-reverse justify-between gap-4 sm:flex-row">
+<button class="flex h-12 w-full cursor-pointer items-center justify-center rounded-lg border border-[#cfe1e7] dark:border-[#3a4c52] bg-transparent px-6 text-base font-bold text-text-sec-light dark:text-text-sec-dark hover:bg-black/5 dark:hover:bg-white/5 transition-colors sm:w-auto sm:min-w-[120px]">
+<span class="material-symbols-outlined mr-2 text-xl">arrow_back</span>
+                                上一题
+                            </button>
+<div class="flex items-center gap-4 w-full sm:w-auto">
+<div class="hidden items-center gap-2 md:flex">
+<label class="relative inline-flex cursor-pointer items-center">
+<input class="peer sr-only" type="checkbox" value=""/>
+<div class="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:left-[2px] after:top-[2px] after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-primary peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:outline-none dark:bg-gray-700 dark:border-gray-600"></div>
+<span class="ml-3 text-sm font-medium text-text-sec-light dark:text-text-sec-dark">自动跳转</span>
+</label>
+</div>
+<button class="flex h-12 w-full cursor-pointer items-center justify-center rounded-lg bg-primary px-8 text-base font-bold text-white shadow-lg shadow-primary/30 transition-all hover:bg-primary/90 hover:shadow-primary/40 focus:ring-4 focus:ring-primary/30 sm:w-auto sm:min-w-[140px]">
+                                    下一题
+                                    <span class="material-symbols-outlined ml-2 text-xl">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer / Copyright -->
+<div class="text-center">
+<p class="text-xs text-text-sec-light/60 dark:text-text-sec-dark/40">
+                        本测试结果仅供参考，不作为医学诊断依据。
+                    </p>
+</div>
+</div>
+</main>
+</div>
+</body></html>

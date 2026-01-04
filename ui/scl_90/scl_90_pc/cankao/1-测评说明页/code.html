@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SCL-90 测评说明</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#13a4ec",
+              "primary-hover": "#0f8cc9",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101c22",
+              "text-main": "#0d171b",
+              "text-secondary": "#4c809a",
+              "border-light": "#e7eff3",
+            },
+            fontFamily: {
+              "display": ["Lexend", "Noto Sans", "sans-serif"],
+              "body": ["Noto Sans", "Lexend", "sans-serif"],
+            },
+            borderRadius: {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "2xl": "1rem",
+                "full": "9999px"
+            },
+            boxShadow: {
+                "soft": "0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02)",
+                "card": "0 10px 15px -3px rgba(0, 0, 0, 0.03), 0 4px 6px -2px rgba(0, 0, 0, 0.01)"
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', 'Noto Sans', sans-serif;
+        }
+        .material-symbols-outlined {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white antialiased min-h-screen flex flex-col">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full bg-white dark:bg-[#15232b] border-b border-border-light dark:border-slate-800">
+<div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex items-center justify-center w-8 h-8 rounded bg-primary/10 text-primary">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-text-main dark:text-white">SCL-90 心理健康测评</h1>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-text-secondary hover:text-primary transition-colors p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800">
+<span class="material-symbols-outlined">help</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-slate-200 overflow-hidden" data-alt="User profile placeholder avatar">
+<div class="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center text-primary text-xs font-bold">U</div>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow flex flex-col items-center justify-center py-10 px-4 sm:px-6">
+<!-- Central Card Container -->
+<div class="w-full max-w-2xl bg-white dark:bg-[#1a2c36] rounded-2xl shadow-card overflow-hidden border border-slate-100 dark:border-slate-800">
+<!-- Header Image / Decoration (Subtle) -->
+<div class="h-2 w-full bg-primary"></div>
+<div class="p-8 sm:p-12">
+<!-- Page Heading -->
+<div class="mb-10 text-center sm:text-left">
+<h2 class="text-3xl sm:text-4xl font-black tracking-tight text-text-main dark:text-white mb-3">测评说明</h2>
+<p class="text-text-secondary dark:text-slate-400 text-lg">在开始之前，请仔细阅读以下须知。</p>
+</div>
+<!-- Info Grid -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+<!-- Item 1 -->
+<div class="flex flex-col gap-2 p-5 rounded-xl bg-background-light dark:bg-[#15232b] border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors">
+<div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined">list_alt</span>
+</div>
+<h3 class="font-bold text-text-main dark:text-white">90 道题目</h3>
+<p class="text-sm text-text-secondary dark:text-slate-400 leading-relaxed">
+                            本量表包含 90 个项目，涵盖思维、情感、行为等多个维度。预计耗时 15-20 分钟。
+                        </p>
+</div>
+<!-- Item 2 -->
+<div class="flex flex-col gap-2 p-5 rounded-xl bg-background-light dark:bg-[#15232b] border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors">
+<div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined">calendar_today</span>
+</div>
+<h3 class="font-bold text-text-main dark:text-white">最近一周</h3>
+<p class="text-sm text-text-secondary dark:text-slate-400 leading-relaxed">
+                            请根据您<strong class="text-primary font-medium">最近一周</strong>（包含今天）的实际感受和真实情况进行作答。
+                        </p>
+</div>
+<!-- Item 3 -->
+<div class="flex flex-col gap-2 p-5 rounded-xl bg-background-light dark:bg-[#15232b] border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors">
+<div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined">verified_user</span>
+</div>
+<h3 class="font-bold text-text-main dark:text-white">真实作答</h3>
+<p class="text-sm text-text-secondary dark:text-slate-400 leading-relaxed">
+                            答案无对错之分。为了结果的准确性，请遵从内心第一反应，如实填写。
+                        </p>
+</div>
+<!-- Item 4 -->
+<div class="flex flex-col gap-2 p-5 rounded-xl bg-background-light dark:bg-[#15232b] border border-transparent hover:border-slate-200 dark:hover:border-slate-700 transition-colors">
+<div class="w-10 h-10 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-primary mb-1">
+<span class="material-symbols-outlined">lock</span>
+</div>
+<h3 class="font-bold text-text-main dark:text-white">隐私保护</h3>
+<p class="text-sm text-text-secondary dark:text-slate-400 leading-relaxed">
+                            您的所有答题数据将被严格加密保存，仅用于生成分析报告，绝不对外公开。
+                        </p>
+</div>
+</div>
+<!-- Disclaimer Section -->
+<div class="bg-slate-50 dark:bg-slate-800/50 rounded-lg p-4 border border-slate-100 dark:border-slate-700 mb-10 flex gap-3 items-start">
+<span class="material-symbols-outlined text-text-secondary dark:text-slate-400 mt-0.5 shrink-0">info</span>
+<div class="text-sm text-text-secondary dark:text-slate-400 leading-relaxed">
+<span class="font-bold block text-text-main dark:text-slate-200 mb-1">免责声明</span>
+                        本测试结果仅供自我参考，不作为医学诊断依据。如果您感到严重不适或有心理危机，请务必及时寻求专业心理医生或医疗机构的帮助。
+                     </div>
+</div>
+<!-- Action Button -->
+<div class="flex justify-center sm:justify-end border-t border-slate-100 dark:border-slate-700 pt-8">
+<button class="w-full sm:w-auto flex items-center justify-center gap-2 bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 transform active:scale-[0.98]">
+<span>开始答题</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Simple Footer -->
+<footer class="mt-8 text-center text-slate-400 text-xs">
+            © 2024 SCL-90 Assessment Platform. All rights reserved.
+        </footer>
+</main>
+</body></html>

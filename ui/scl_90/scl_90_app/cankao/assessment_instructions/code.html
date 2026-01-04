@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Assessment Instructions</title>
+<!-- Fonts and Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS with configuration -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13b6ec",
+                        "background-light": "#f6f8f8",
+                        "background-dark": "#101d22",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "2xl": "1rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        /* Custom scrollbar hide for cleaner mobile look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased selection:bg-primary/30">
+<div class="relative flex h-full min-h-screen w-full max-w-md mx-auto flex-col overflow-x-hidden shadow-xl bg-white dark:bg-slate-900">
+<!-- Top App Bar -->
+<div class="sticky top-0 z-50 flex items-center bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 pb-2 justify-between border-b border-slate-100 dark:border-slate-800">
+<div class="text-slate-900 dark:text-slate-100 flex size-10 shrink-0 items-center justify-center cursor-pointer rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-[24px]">arrow_back</span>
+</div>
+<h2 class="text-slate-900 dark:text-slate-100 text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">测评说明</h2>
+</div>
+<!-- Main Content Area -->
+<div class="flex-1 overflow-y-auto no-scrollbar pb-24">
+<!-- Hero Image Section -->
+<div class="@container p-4">
+<div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden rounded-2xl min-h-[220px] shadow-sm relative group" data-alt="Calm abstract blue gradient with soft waves" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA_3UTGVoo_hFK5hUUz8NEQOlphUz2JBBOW3zS814TFwrIK2jEGruKYccajYqKxRF3Vpn2AHihUKlcQBbk0OxbSi1xJun2p22pHu3EfFFlZFUXLBoQo_PqY5yU1K_jhYria2Cbtq8wbBW3J1pVn98Irl-EF4S5J_j3d-v4hvjN6QkTGPFYuFjT9jrpq3Z1QWSb38ehDsiNWNABogqdzxGtVc_Az_XRTdpd8jexlMI0zVhZ7eE5Emwa4Vf2U4UEP8F6I0XTwm-hOjTw");'>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+<div class="relative p-6">
+<h3 class="text-white text-2xl font-bold mb-1">SCL-90 Assessment</h3>
+<p class="text-white/90 text-sm font-medium">Standard Psychological Health Checklist</p>
+</div>
+</div>
+</div>
+<!-- Intro Text -->
+<div class="px-6 py-2">
+<p class="text-slate-600 dark:text-slate-400 text-base font-normal leading-relaxed">
+                    Please read the following instructions carefully. Your honest responses will help ensure the accuracy of your psychological health profile.
+                </p>
+</div>
+<!-- Key Info Cards -->
+<div class="flex flex-col gap-3 px-4 mt-6">
+<!-- Question Count -->
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">format_list_numbered</span>
+</div>
+<div class="flex flex-col">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Total: 90 Questions</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm">Estimated time: 15-20 mins</p>
+</div>
+</div>
+<!-- Time Frame -->
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">date_range</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Time Frame</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-normal line-clamp-2">Based on feelings from the <span class="text-primary font-medium">past week</span></p>
+</div>
+</div>
+<!-- Honesty -->
+<div class="flex items-center gap-4 bg-slate-50 dark:bg-slate-800/50 p-4 rounded-xl border border-slate-100 dark:border-slate-800">
+<div class="text-primary flex items-center justify-center rounded-lg bg-primary/10 shrink-0 size-12">
+<span class="material-symbols-outlined text-[24px]">psychology</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-slate-900 dark:text-slate-100 text-base font-semibold leading-normal">Answer Intuitively</p>
+<p class="text-slate-500 dark:text-slate-400 text-sm leading-normal line-clamp-2">No right or wrong answers</p>
+</div>
+</div>
+</div>
+<!-- Disclaimer -->
+<div class="px-4 mt-8 mb-6">
+<div class="bg-amber-50 dark:bg-amber-900/10 border border-amber-100 dark:border-amber-900/30 rounded-lg p-4 flex gap-3 items-start">
+<span class="material-symbols-outlined text-amber-500 shrink-0 text-[20px] mt-0.5">info</span>
+<p class="text-amber-800 dark:text-amber-200/80 text-xs font-medium leading-relaxed">
+                        Note: This assessment is for self-reference only and does not constitute a professional medical diagnosis. If you are in crisis, please seek professional help immediately.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Button -->
+<div class="fixed bottom-0 w-full max-w-md bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 p-4 pb-8 z-20">
+<button class="w-full bg-primary hover:bg-sky-400 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-primary/20 transition-all active:scale-[0.98] flex items-center justify-center gap-2">
+<span>开始答题</span>
+<span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

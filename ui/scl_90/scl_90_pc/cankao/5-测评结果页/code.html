@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SCL-90 测评结果</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "primary-dark": "#0e7ab0",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c35",
+                        "text-main": "#0d171b",
+                        "text-sub": "#4c809a",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "Noto Sans SC", "sans-serif"],
+                        "body": ["Lexend", "Noto Sans SC", "sans-serif"],
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', 'Noto Sans SC', sans-serif;
+        }
+        /* Custom scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-white transition-colors duration-200">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Navbar -->
+<header class="sticky top-0 z-50 w-full border-b border-gray-200 dark:border-gray-800 bg-surface-light/95 dark:bg-surface-dark/95 backdrop-blur-sm">
+<div class="layout-container flex h-16 items-center justify-between px-6 lg:px-40">
+<div class="flex items-center gap-4 text-text-main dark:text-white">
+<div class="size-8 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-2xl">psychology</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-[-0.015em]">SCL-90 心理测评</h2>
+</div>
+<div class="hidden md:flex items-center gap-9">
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">首页</a>
+<a class="text-sm font-medium text-primary" href="#">测评</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">历史记录</a>
+<a class="text-sm font-medium hover:text-primary transition-colors" href="#">帮助</a>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-9 ring-2 ring-white dark:ring-gray-700 shadow-sm cursor-pointer" data-alt="User profile avatar showing a generic silhouette" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuB4jAB7BRbkrcPdIlHXjF-hrfARz1YWEVn8Ep-zjAhAE2lwD2RFoWpvptjcitpPKfcf-AaNvFJeT3ijnAvBXWyKG3gjkSI89sDTyfaUfPWMnvt1AgHcx2kjSlxQJkavHMiTZY3TB3t4PT8qcSwVA-i8c3IA7OI44B3gnpIEsXSCwhEVRamXm827ybRNiS585jDhBifzP8InecPVtrlfJKeb7GZTI3_g6KNjqouMmB9tnFivEdfUSoOFGaeSlqCazoxL2jNWTNZYTF8");'></div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex justify-center py-8 px-4 md:px-6 lg:px-40">
+<div class="flex flex-col max-w-[960px] w-full gap-6">
+<!-- Heading Section -->
+<div class="flex flex-col gap-2 pt-4 pb-2">
+<h1 class="text-text-main dark:text-white text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em]">测评结果</h1>
+<p class="text-text-sub dark:text-gray-400 text-base font-normal">您的 SCL-90 心理健康症状自评量表分析报告已生成</p>
+</div>
+<!-- Overall Status Card -->
+<div class="bg-surface-light dark:bg-surface-dark rounded-2xl p-6 md:p-8 shadow-sm border border-gray-100 dark:border-gray-800 flex flex-col md:flex-row gap-8 items-center justify-between">
+<div class="flex-1 flex flex-col gap-4">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 dark:bg-green-900/20 w-fit">
+<span class="material-symbols-outlined text-green-600 dark:text-green-400 text-sm">check_circle</span>
+<span class="text-green-700 dark:text-green-300 text-xs font-bold uppercase tracking-wide">状态良好</span>
+</div>
+<h2 class="text-2xl font-bold leading-tight text-text-main dark:text-white">
+                            您的心理健康状况总体良好，情绪稳定。
+                        </h2>
+<p class="text-text-sub dark:text-gray-400 text-sm leading-relaxed max-w-xl">
+                            根据您的作答情况，大部分因子得分处于正常范围内。您目前的心理状态较为积极，能够较好地应对日常生活中的压力。建议保持当前的生活节奏，继续关注身心健康。
+                        </p>
+</div>
+<div class="flex flex-col items-center justify-center min-w-[160px] p-6 rounded-xl bg-primary/5 dark:bg-primary/10 border border-primary/10">
+<span class="text-text-sub dark:text-primary/80 text-sm font-medium mb-1">总均分数值</span>
+<span class="text-primary text-5xl font-black tracking-tight">1.4</span>
+<span class="text-xs text-gray-400 mt-2">参考范围: 1-5</span>
+</div>
+</div>
+<!-- Factor Details Grid -->
+<div class="flex flex-col gap-4 mt-4">
+<div class="flex items-center justify-between">
+<h3 class="text-lg font-bold text-text-main dark:text-white flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">bar_chart</span>
+                            9项因子得分分布
+                        </h3>
+<span class="text-xs text-text-sub dark:text-gray-500 bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded">得分 &gt; 2 分通常提示需关注</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<!-- Factor Card 1 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">躯体化</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.2</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 24%"></div>
+</div>
+</div>
+<!-- Factor Card 2 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">强迫症状</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.6</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 32%"></div>
+</div>
+</div>
+<!-- Factor Card 3 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">人际关系敏感</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.3</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 26%"></div>
+</div>
+</div>
+<!-- Factor Card 4 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">抑郁</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.4</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 28%"></div>
+</div>
+</div>
+<!-- Factor Card 5 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">焦虑</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.2</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 24%"></div>
+</div>
+</div>
+<!-- Factor Card 6 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">敌对</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.1</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 22%"></div>
+</div>
+</div>
+<!-- Factor Card 7 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">恐怖</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.1</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 22%"></div>
+</div>
+</div>
+<!-- Factor Card 8 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">偏执</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.3</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 26%"></div>
+</div>
+</div>
+<!-- Factor Card 9 -->
+<div class="bg-surface-light dark:bg-surface-dark p-5 rounded-xl border border-gray-100 dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-3">
+<span class="text-sm font-medium text-text-sub dark:text-gray-400">精神病性</span>
+<span class="text-xl font-bold text-text-main dark:text-white">1.2</span>
+</div>
+<div class="w-full bg-gray-100 dark:bg-gray-700 rounded-full h-2 overflow-hidden">
+<div class="bg-primary h-2 rounded-full" style="width: 24%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Action Area -->
+<div class="flex flex-col items-center gap-6 mt-8 mb-12">
+<button class="group flex items-center gap-2 px-8 py-3 rounded-xl bg-transparent border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 font-semibold text-sm">
+<span class="material-symbols-outlined text-[20px] group-hover:text-white transition-colors">history</span>
+                        查看历史记录
+                    </button>
+<div class="text-center max-w-lg px-4">
+<p class="text-xs text-text-sub/60 dark:text-gray-500 font-normal leading-relaxed">
+<span class="material-symbols-outlined text-[14px] align-middle mr-1">info</span>
+                            结果仅供参考，测评结果不能作为医学诊断依据。如果您感到明显不适或困扰，请及时前往专业医疗机构寻求帮助。
+                        </p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

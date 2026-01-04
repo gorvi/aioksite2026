@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SCL-90 Assessment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec",
+                        "primary-hover": "#0e8ac7",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101c22",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2c35",
+                        "text-main": "#0d171b",
+                        "text-secondary": "#586e7a",
+                        "border-light": "#e7eff3",
+                        "border-dark": "#2c3e4a",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "sans-serif"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', sans-serif;
+        }
+        /* Custom radio styling to make the whole card clickable and styled */
+        .option-input:checked + .option-label {
+            border-color: #13a4ec;
+            background-color: rgba(19, 164, 236, 0.05);
+            box-shadow: 0 0 0 2px rgba(19, 164, 236, 0.2);
+        }
+        .option-input:checked + .option-label .radio-circle-inner {
+            transform: scale(1);
+        }
+        .radio-circle-inner {
+            transform: scale(0);
+            transition: transform 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-text-main dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-200">
+<!-- Top Navigation -->
+<header class="w-full bg-card-light dark:bg-card-dark border-b border-border-light dark:border-border-dark sticky top-0 z-10 transition-colors duration-200">
+<div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="size-8 rounded bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-text-main dark:text-white">SCL-90 Assessment</h1>
+</div>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-text-secondary dark:text-gray-400 hover:bg-slate-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[18px]">close</span>
+<span>Exit Assessment</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center p-6 sm:p-8">
+<div class="w-full max-w-2xl flex flex-col gap-8 animate-fade-in">
+<!-- Progress Section -->
+<div class="w-full flex flex-col gap-3">
+<div class="flex justify-between items-end px-1">
+<span class="text-sm font-medium text-text-secondary dark:text-gray-400">Progress</span>
+<span class="text-sm font-bold text-primary">12 / 90</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-gray-700 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full transition-all duration-500 ease-out" style="width: 13.33%"></div>
+</div>
+</div>
+<!-- Question Card -->
+<div class="bg-card-light dark:bg-card-dark rounded-xl shadow-sm border border-border-light dark:border-border-dark p-8 md:p-12 transition-colors duration-200">
+<div class="flex flex-col items-center text-center gap-6 mb-10">
+<span class="inline-flex items-center justify-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold uppercase tracking-wider">Question 12</span>
+<h2 class="text-2xl md:text-3xl font-bold text-text-main dark:text-white leading-tight">
+                        Feeling easily annoyed or irritated
+                    </h2>
+<p class="text-text-secondary dark:text-gray-400 text-base md:text-lg max-w-lg leading-relaxed">
+                        Select the option that best describes how much this problem has distressed you during the past week.
+                    </p>
+</div>
+<!-- Options List -->
+<div class="flex flex-col gap-3 max-w-lg mx-auto w-full">
+<!-- Option 1: None -->
+<label class="relative group cursor-pointer">
+<input class="option-input sr-only" name="answer" type="radio" value="0"/>
+<div class="option-label flex items-center justify-between p-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-gray-750 transition-all duration-200">
+<div class="flex items-center gap-4">
+<span class="size-8 rounded-full bg-slate-100 dark:bg-gray-700 text-text-secondary dark:text-gray-400 font-bold text-sm flex items-center justify-center group-hover:bg-white dark:group-hover:bg-gray-600 group-hover:shadow-sm transition-all">1</span>
+<span class="font-medium text-text-main dark:text-white">没有 (None)</span>
+</div>
+<div class="size-5 rounded-full border-2 border-slate-300 dark:border-gray-600 flex items-center justify-center">
+<div class="radio-circle-inner size-2.5 rounded-full bg-primary"></div>
+</div>
+</div>
+</label>
+<!-- Option 2: Very Mild -->
+<label class="relative group cursor-pointer">
+<input class="option-input sr-only" name="answer" type="radio" value="1"/>
+<div class="option-label flex items-center justify-between p-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-gray-750 transition-all duration-200">
+<div class="flex items-center gap-4">
+<span class="size-8 rounded-full bg-slate-100 dark:bg-gray-700 text-text-secondary dark:text-gray-400 font-bold text-sm flex items-center justify-center group-hover:bg-white dark:group-hover:bg-gray-600 group-hover:shadow-sm transition-all">2</span>
+<span class="font-medium text-text-main dark:text-white">很轻 (Very Mild)</span>
+</div>
+<div class="size-5 rounded-full border-2 border-slate-300 dark:border-gray-600 flex items-center justify-center">
+<div class="radio-circle-inner size-2.5 rounded-full bg-primary"></div>
+</div>
+</div>
+</label>
+<!-- Option 3: Moderate -->
+<label class="relative group cursor-pointer">
+<input class="option-input sr-only" name="answer" type="radio" value="2"/>
+<div class="option-label flex items-center justify-between p-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-gray-750 transition-all duration-200">
+<div class="flex items-center gap-4">
+<span class="size-8 rounded-full bg-slate-100 dark:bg-gray-700 text-text-secondary dark:text-gray-400 font-bold text-sm flex items-center justify-center group-hover:bg-white dark:group-hover:bg-gray-600 group-hover:shadow-sm transition-all">3</span>
+<span class="font-medium text-text-main dark:text-white">中等 (Moderate)</span>
+</div>
+<div class="size-5 rounded-full border-2 border-slate-300 dark:border-gray-600 flex items-center justify-center">
+<div class="radio-circle-inner size-2.5 rounded-full bg-primary"></div>
+</div>
+</div>
+</label>
+<!-- Option 4: Moderately Severe -->
+<label class="relative group cursor-pointer">
+<input class="option-input sr-only" name="answer" type="radio" value="3"/>
+<div class="option-label flex items-center justify-between p-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-gray-750 transition-all duration-200">
+<div class="flex items-center gap-4">
+<span class="size-8 rounded-full bg-slate-100 dark:bg-gray-700 text-text-secondary dark:text-gray-400 font-bold text-sm flex items-center justify-center group-hover:bg-white dark:group-hover:bg-gray-600 group-hover:shadow-sm transition-all">4</span>
+<span class="font-medium text-text-main dark:text-white">偏重 (Moderately Severe)</span>
+</div>
+<div class="size-5 rounded-full border-2 border-slate-300 dark:border-gray-600 flex items-center justify-center">
+<div class="radio-circle-inner size-2.5 rounded-full bg-primary"></div>
+</div>
+</div>
+</label>
+<!-- Option 5: Severe -->
+<label class="relative group cursor-pointer">
+<input class="option-input sr-only" name="answer" type="radio" value="4"/>
+<div class="option-label flex items-center justify-between p-4 rounded-lg border border-border-light dark:border-border-dark bg-white dark:bg-gray-800 hover:border-primary/50 dark:hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-gray-750 transition-all duration-200">
+<div class="flex items-center gap-4">
+<span class="size-8 rounded-full bg-slate-100 dark:bg-gray-700 text-text-secondary dark:text-gray-400 font-bold text-sm flex items-center justify-center group-hover:bg-white dark:group-hover:bg-gray-600 group-hover:shadow-sm transition-all">5</span>
+<span class="font-medium text-text-main dark:text-white">严重 (Severe)</span>
+</div>
+<div class="size-5 rounded-full border-2 border-slate-300 dark:border-gray-600 flex items-center justify-center">
+<div class="radio-circle-inner size-2.5 rounded-full bg-primary"></div>
+</div>
+</div>
+</label>
+</div>
+<!-- Navigation Controls -->
+<div class="flex justify-between items-center mt-10 pt-6 border-t border-border-light dark:border-border-dark w-full max-w-lg mx-auto">
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-text-secondary dark:text-gray-400 hover:text-text-main dark:hover:text-white hover:bg-slate-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">arrow_back</span>
+                        Previous
+                    </button>
+<!-- Visual cue that selection auto-advances, but a manual button is sometimes nice for accessibility -->
+<span class="text-xs text-text-secondary dark:text-gray-500 hidden sm:inline-block">Select an option to continue</span>
+</div>
+</div>
+<!-- Footer / Disclaimer -->
+<footer class="text-center pb-8">
+<p class="text-xs text-text-secondary dark:text-gray-500">
+                    Your responses are confidential and secure. SCL-90 Assessment v1.0
+                </p>
+</footer>
+</div>
+</main>
+</body></html>

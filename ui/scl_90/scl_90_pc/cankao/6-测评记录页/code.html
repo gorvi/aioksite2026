@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>测评记录 - SCL-90</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&amp;family=Noto+Sans+SC:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13a4ec", // Blue/Blue-green primary
+                        "primary-content": "#ffffff",
+                        "secondary": "#4c809a", // Muted blue-grey for secondary text
+                        "background-light": "#f6f7f8", // Very light grey background
+                        "background-dark": "#101c22",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2c35",
+                        "success": "#10b981",
+                        "warning": "#f59e0b",
+                        "danger": "#ef4444",
+                    },
+                    fontFamily: {
+                        "display": ["Lexend", "Noto Sans SC", "sans-serif"],
+                        "body": ["Noto Sans SC", "sans-serif"],
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Lexend', 'Noto Sans SC', sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-[#0d171b] dark:text-gray-100 min-h-screen flex flex-col font-display antialiased selection:bg-primary/20">
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full border-b border-[#e7eff3] dark:border-gray-800 bg-surface-light/80 dark:bg-surface-dark/80 backdrop-blur-md">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex h-16 items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="flex size-8 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">psychology</span>
+</div>
+<h1 class="text-lg font-bold tracking-tight text-[#0d171b] dark:text-white">SCL-90 心理测评</h1>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" href="#">开始测评</a>
+<a class="text-sm font-medium text-primary dark:text-primary" href="#">测评记录</a>
+<a class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-primary transition-colors" href="#">个人中心</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="rounded-full p-1 text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[20px]">notifications</span>
+</button>
+<div class="size-9 rounded-full bg-gray-200 bg-center bg-cover border-2 border-white dark:border-gray-700 shadow-sm" data-alt="User profile avatar placeholder" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDgJY8QBUxnGgAQejj2OOtg1vQ1qJCNlzdCpUV-x-iZmcCd7tMm0ret1by6wwpEIJ1kocqu1zZWvBEKmA-BeqFMNsmk0nW4sXVsp9miMaAZ-3UwUsv_9Sp8KTFdmSLl3Va4ARClU166GyJwKtn_hUTGzB9MvOxXszBJv1kV4btWaLvx6KxdPJsbobEllgi7Z_41O2kgQARyrXCkmR3q-koUEywRcZYlTCBBH07dsJdpztZRmKKUfXJt7yUAA6y3c4d_bjQoZGGqcGY");'>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow py-8 px-4 sm:px-6 lg:px-8">
+<div class="mx-auto max-w-5xl space-y-8">
+<!-- Page Heading -->
+<div class="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
+<div class="space-y-1">
+<h2 class="text-3xl font-bold tracking-tight text-[#0d171b] dark:text-white">测评记录</h2>
+<p class="text-secondary dark:text-gray-400">查看您的历史心理健康评估结果，追踪状态变化。</p>
+</div>
+<div class="flex items-center gap-2">
+<button class="inline-flex items-center justify-center gap-2 rounded-lg bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-200 shadow-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-all">
+<span class="material-symbols-outlined text-[18px]">download</span>
+                        导出记录
+                    </button>
+</div>
+</div>
+<!-- Stats Overview (Optional but adds value) -->
+<div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+<div class="rounded-xl border border-gray-100 dark:border-gray-800 bg-surface-light dark:bg-surface-dark p-5 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
+<span class="material-symbols-outlined">history</span>
+</div>
+<div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">累计测评</p>
+<p class="text-2xl font-bold text-[#0d171b] dark:text-white">12 <span class="text-sm font-normal text-gray-400">次</span></p>
+</div>
+</div>
+</div>
+<div class="rounded-xl border border-gray-100 dark:border-gray-800 bg-surface-light dark:bg-surface-dark p-5 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="flex size-10 items-center justify-center rounded-lg bg-green-50 text-green-600 dark:bg-green-900/20 dark:text-green-400">
+<span class="material-symbols-outlined">sentiment_satisfied</span>
+</div>
+<div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">近期状态</p>
+<p class="text-xl font-bold text-[#0d171b] dark:text-white">保持稳定</p>
+</div>
+</div>
+</div>
+<div class="rounded-xl border border-gray-100 dark:border-gray-800 bg-surface-light dark:bg-surface-dark p-5 shadow-sm">
+<div class="flex items-center gap-3">
+<div class="flex size-10 items-center justify-center rounded-lg bg-blue-50 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400">
+<span class="material-symbols-outlined">calendar_month</span>
+</div>
+<div>
+<p class="text-sm font-medium text-gray-500 dark:text-gray-400">上次测评</p>
+<p class="text-lg font-bold text-[#0d171b] dark:text-white">3 天前</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Records Table -->
+<div class="rounded-xl border border-[#cfdfe7] dark:border-gray-700 bg-surface-light dark:bg-surface-dark shadow-sm overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-gray-50/50 dark:bg-gray-800/50 border-b border-[#cfdfe7] dark:border-gray-700">
+<th class="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900 dark:text-gray-100 w-1/4">测评日期</th>
+<th class="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900 dark:text-gray-100 w-1/4">总均分 (1-5)</th>
+<th class="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900 dark:text-gray-100 w-1/4">总体状态</th>
+<th class="whitespace-nowrap px-6 py-4 text-sm font-semibold text-gray-900 dark:text-gray-100 w-1/4 text-right">操作</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-[#cfdfe7] dark:divide-gray-700">
+<!-- Row 1 -->
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-gray-400">event</span>
+                                        2023-10-24
+                                    </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center text-lg font-bold text-primary">1.24</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-50 dark:bg-green-900/30 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20">
+<span class="h-1.5 w-1.5 rounded-full bg-green-600 dark:bg-green-400"></span>
+                                        状态良好
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-end gap-1 ml-auto group-hover:underline">
+                                        查看详情
+                                        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 2 -->
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-gray-400">event</span>
+                                        2023-09-15
+                                    </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center text-lg font-bold text-primary">2.15</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-yellow-50 dark:bg-yellow-900/30 px-3 py-1 text-xs font-medium text-yellow-700 dark:text-yellow-300 ring-1 ring-inset ring-yellow-600/20">
+<span class="h-1.5 w-1.5 rounded-full bg-yellow-600 dark:bg-yellow-400"></span>
+                                        轻度预警
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-end gap-1 ml-auto group-hover:underline">
+                                        查看详情
+                                        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 3 -->
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-gray-400">event</span>
+                                        2023-08-30
+                                    </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center text-lg font-bold text-primary">1.10</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-50 dark:bg-green-900/30 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20">
+<span class="h-1.5 w-1.5 rounded-full bg-green-600 dark:bg-green-400"></span>
+                                        状态良好
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-end gap-1 ml-auto group-hover:underline">
+                                        查看详情
+                                        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</td>
+</tr>
+<!-- Row 4 -->
+<tr class="group hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors cursor-pointer">
+<td class="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-gray-400">event</span>
+                                        2023-07-12
+                                    </div>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center text-lg font-bold text-primary">1.05</span>
+</td>
+<td class="px-6 py-4">
+<span class="inline-flex items-center gap-1.5 rounded-full bg-green-50 dark:bg-green-900/30 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-300 ring-1 ring-inset ring-green-600/20">
+<span class="h-1.5 w-1.5 rounded-full bg-green-600 dark:bg-green-400"></span>
+                                        状态良好
+                                    </span>
+</td>
+<td class="px-6 py-4 text-right">
+<button class="text-sm font-medium text-primary hover:text-blue-600 dark:hover:text-blue-400 flex items-center justify-end gap-1 ml-auto group-hover:underline">
+                                        查看详情
+                                        <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Pagination (Optional) -->
+<div class="flex items-center justify-between border-t border-[#cfdfe7] dark:border-gray-700 bg-gray-50/30 dark:bg-gray-800/30 px-6 py-3">
+<div class="text-xs text-gray-500 dark:text-gray-400">
+                        显示第 <span class="font-medium">1</span> 到 <span class="font-medium">4</span> 条，共 <span class="font-medium">12</span> 条
+                    </div>
+<div class="flex gap-1">
+<button class="inline-flex items-center justify-center rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-2 py-1 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700 disabled:opacity-50">
+<span class="material-symbols-outlined text-[16px]">chevron_left</span>
+</button>
+<button class="inline-flex items-center justify-center rounded-md border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 px-2 py-1 text-sm font-medium text-gray-500 hover:bg-gray-50 dark:hover:bg-gray-700">
+<span class="material-symbols-outlined text-[16px]">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Disclaimer / Rule Prompt -->
+<div class="rounded-lg bg-blue-50 dark:bg-blue-900/20 p-4 border border-blue-100 dark:border-blue-900/50">
+<div class="flex gap-3">
+<span class="material-symbols-outlined text-primary shrink-0">info</span>
+<div>
+<h4 class="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-1">关于数据保存</h4>
+<p class="text-sm text-secondary dark:text-gray-400 leading-relaxed">
+                            为了保障您的数据安全与隐私，系统仅保存最近 90 天内的详细测评报告。请您及时查阅或下载保存重要记录。
+                        </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="mt-auto border-t border-[#e7eff3] dark:border-gray-800 bg-surface-light dark:bg-surface-dark py-8 text-center">
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col items-center justify-center gap-4">
+<div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2">
+<a class="text-sm text-secondary dark:text-gray-500 hover:text-primary transition-colors" href="#">隐私政策</a>
+<a class="text-sm text-secondary dark:text-gray-500 hover:text-primary transition-colors" href="#">使用条款</a>
+<a class="text-sm text-secondary dark:text-gray-500 hover:text-primary transition-colors" href="#">帮助中心</a>
+</div>
+<p class="text-sm text-secondary/60 dark:text-gray-600">
+                    © 2023 SCL-90 心理健康评估系统. All rights reserved.
+                </p>
+</div>
+</div>
+</footer>
+</body></html>
