@@ -247,8 +247,8 @@ export default function Scl90ResultPage() {
 
                   {/* 阳性项目 */}
                   <div className={`rounded-xl p-4 text-white shadow-lg ${result.attention_items_count > 43
-                      ? 'bg-gradient-to-br from-orange-500 to-red-600'
-                      : 'bg-gradient-to-br from-green-500 to-teal-600'
+                    ? 'bg-gradient-to-br from-orange-500 to-red-600'
+                    : 'bg-gradient-to-br from-green-500 to-teal-600'
                     }`}>
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex-1">
@@ -406,7 +406,7 @@ export default function Scl90ResultPage() {
                     <h4 className="font-bold text-slate-900 dark:text-white mb-2">温馨提示</h4>
                     <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
                       测试结果反映的是您当前的心理状态切片，可能会随着环境、生活事件而波动。
-                      如果某些指标偏高，不要过于惊慌，这也许是身心在提醒您"需要休息"或"需要关注"的信号。
+                      如果某些指标偏高，不要过于惊慌，这也许是身心在提醒您&quot;需要休息&quot;或&quot;需要关注&quot;的信号。
                     </p>
                   </div>
                 </div>

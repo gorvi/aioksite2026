@@ -378,7 +378,7 @@ export default function AdhdFullResultPage() {
                     <div>
                       <h4 className="font-bold text-slate-900 dark:text-white mb-2">给自己的寄语</h4>
                       <p className="text-sm text-slate-700 dark:text-slate-300 leading-relaxed italic">
-                        "每个人都有独特的大脑运作模式。这些分数不是评判优劣的标签，而是帮助你理解自己的地图。接纳真实的自己，找到适合自己的节奏，就是最好的生活方式。"
+                        &quot;每个人都有独特的大脑运作模式。这些分数不是评判优劣的标签，而是帮助你理解自己的地图。接纳真实的自己，找到适合自己的节奏，就是最好的生活方式。&quot;
                       </p>
                     </div>
                   </div>
