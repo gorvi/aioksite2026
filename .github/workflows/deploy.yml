@@ -27,4 +27,4 @@ jobs:
             # 这里的构建步骤可能需要较多内存，轻量服务器建议 2G 内存以上
             npm run build
             # 这里的名字要和你在宝塔里起的 Node 项目名一致，或者直接用 pm2 管理
-            pm2 restart aiok-site || pm2 start npm --name "aiok-site" -- start
+            pm2 restart aioksite2026 || pm2 start npm --name "aioksite2026" -- start
