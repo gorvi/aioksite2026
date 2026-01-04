@@ -252,8 +252,8 @@ export default function AdhdFullResultPage() {
                           <div className="flex justify-between items-end mb-1">
                             <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">当前行为风格回顾</span>
                             <div className="text-right">
-                              <span className={`text-xl font-bold ${result.asrs_score >= 24 ? 'text-red-500' :
-                                result.asrs_score >= 17 ? 'text-yellow-500' : 'text-green-500'
+                              <span className={`text-xl font-bold ${(result.asrs_score ?? 0) >= 24 ? 'text-red-500' :
+                                (result.asrs_score ?? 0) >= 17 ? 'text-yellow-500' : 'text-green-500'
                                 }`}>
                                 {result.asrs_score}
                               </span>
@@ -261,12 +261,12 @@ export default function AdhdFullResultPage() {
                             </div>
                           </div>
                           <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
-                            <div className={`h-full rounded-full ${result.asrs_score >= 24 ? 'bg-red-500' :
-                              result.asrs_score >= 17 ? 'bg-yellow-500' : 'bg-green-500'
-                              }`} style={{ width: `${(result.asrs_score / 72) * 100}%` }}></div>
+                            <div className={`h-full rounded-full ${(result.asrs_score ?? 0) >= 24 ? 'bg-red-500' :
+                              (result.asrs_score ?? 0) >= 17 ? 'bg-yellow-500' : 'bg-green-500'
+                              }`} style={{ width: `${((result.asrs_score ?? 0) / 72) * 100}%` }}></div>
                           </div>
                           <p className="text-xs text-slate-500 mt-1">
-                            {result.asrs_score >= 24 ? '特征表现较为显著' : result.asrs_score >= 17 ? '存在一定相关特征' : '暂未发现典型特征'}
+                            {(result.asrs_score ?? 0) >= 24 ? '特征表现较为显著' : (result.asrs_score ?? 0) >= 17 ? '存在一定相关特征' : '暂未发现典型特征'}
                           </p>
                         </div>
 
@@ -275,8 +275,8 @@ export default function AdhdFullResultPage() {
                           <div className="flex justify-between items-end mb-1">
                             <span className="text-sm font-semibold text-slate-700 dark:text-slate-200">早期成长特质回溯</span>
                             <div className="text-right">
-                              <span className={`text-xl font-bold ${result.wurs_score >= 46 ? 'text-red-500' :
-                                result.wurs_score >= 36 ? 'text-yellow-500' : 'text-green-500'
+                              <span className={`text-xl font-bold ${(result.wurs_score ?? 0) >= 46 ? 'text-red-500' :
+                                (result.wurs_score ?? 0) >= 36 ? 'text-yellow-500' : 'text-green-500'
                                 }`}>
                                 {result.wurs_score}
                               </span>
@@ -284,12 +284,12 @@ export default function AdhdFullResultPage() {
                             </div>
                           </div>
                           <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2.5 overflow-hidden">
-                            <div className={`h-full rounded-full ${result.wurs_score >= 46 ? 'bg-red-500' :
-                              result.wurs_score >= 36 ? 'bg-yellow-500' : 'bg-green-500'
-                              }`} style={{ width: `${(result.wurs_score / 100) * 100}%` }}></div>
+                            <div className={`h-full rounded-full ${(result.wurs_score ?? 0) >= 46 ? 'bg-red-500' :
+                              (result.wurs_score ?? 0) >= 36 ? 'bg-yellow-500' : 'bg-green-500'
+                              }`} style={{ width: `${((result.wurs_score ?? 0) / 100) * 100}%` }}></div>
                           </div>
                           <p className="text-xs text-slate-500 mt-1">
-                            {result.wurs_score >= 46 ? '早期特征表现显著' : result.wurs_score >= 36 ? '早期存在一定特征' : '早期特征表现不明显'}
+                            {(result.wurs_score ?? 0) >= 46 ? '早期特征回顾较为显著' : (result.wurs_score ?? 0) >= 36 ? '存在部分早期相关特质' : '暂未发现典型早期特征'}
                           </p>
                         </div>
                       </div>
