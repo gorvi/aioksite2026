@@ -22,11 +22,26 @@ jobs:
           # key: ${{ secrets.SERVER_SSH_KEY }}     # 如果使用私钥登录，任选其一
           script: |
             git config --global --add safe.directory /www/wwwroot/aioksite2026
-            sudo chown -R $USER:$USER /www/wwwroot/aioksite2026
             cd /www/wwwroot/aioksite2026
-            git pull origin main
-            npm install
-            # 这里的构建步骤可能需要较多内存，轻量服务器建议 2G 内存以上
+            echo "🚚 Pulling latest code..."
+            git fetch --all
+            git reset --hard origin/main
+            
+            echo "🧹 Cleaning deep caches..."
+            rm -rf .next
+            rm -rf node_modules/.cache
+            
+            echo "📦 Building..."
+            npm install --production=false
             npm run build
-            # 这里的名字要和你在宝塔里起的 Node 项目名一致，或者直接用 pm2 管理
-            pm2 restart aioksite2026 || pm2 start npm --name "aioksite2026" -- start
+            
+            echo "💀 Killing zombie processes on 3006..."
+            fuser -k 3006/tcp || true
+            pm2 delete aioksite2026 || true
+            pkill -9 node || true
+            
+            echo "🚀 Starting application..."
+            pm2 start node_modules/next/dist/bin/next --name "aioksite2026" -- start -- -p 3006
+            pm2 save
+            
+            echo "✅ Deployment Successful!"
