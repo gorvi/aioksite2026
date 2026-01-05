@@ -1,5 +1,11 @@
 name: Deploy to Tencent Cloud
 
+# 📝 注意事项：
+# 1. 服务器上必须存在 ecosystem.config.js（包含数据库配置）
+# 2. 该文件不在 Git 中（已在 .gitignore），需手动在服务器上配置
+# 3. 使用 PM2 管理进程，环境变量在 ecosystem.config.js 中定义
+# 4. 部署完成后应用会自动重启并加载最新代码
+
 on:
   push:
     branches:
@@ -29,15 +35,27 @@ jobs:
             git reset --hard origin/main
             chown -R www:www .
             
-            echo "📦 Building project (this takes ~2 mins)..."
-            sudo -u www npm install --production=false
-            sudo -u www npm run build
+            echo "📦 Installing dependencies..."
+            npm install --production=false
+            
+            echo "🏗️  Building project (this takes ~2 mins)..."
+            npm run build
+            
+            echo "🔧 Setting correct ownership..."
+            chown -R www:www .
             
             echo "🚀 Restarting Service via PM2..."
-            # 使用 sudo -u www 确保进程权属正确，先删后起最稳
-            sudo -u www pm2 delete aioksite2026 || true
-            sudo -u www pm2 start node_modules/next/dist/bin/next --name "aioksite2026" -- start -- -p 3006
-            sudo -u www pm2 save
+            # 确保 ecosystem.config.js 存在（如果不存在则从示例创建）
+            if [ ! -f "ecosystem.config.js" ]; then
+              echo "⚠️  ecosystem.config.js not found, creating from example..."
+              cp ecosystem.config.example.js ecosystem.config.js
+              echo "❌ Please configure database credentials in ecosystem.config.js"
+              exit 1
+            fi
+            
+            # 使用 ecosystem.config.js 重启（包含环境变量配置）
+            pm2 restart ecosystem.config.js --update-env || pm2 start ecosystem.config.js
+            pm2 save
             
             echo "🧹 Clearing Nginx Cache..."
             rm -rf /www/server/nginx/proxy_cache_dir/*
