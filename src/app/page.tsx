@@ -138,7 +138,7 @@ export default function PortalPage() {
                         <span className="font-medium">&copy; 2024-2026 AIOK.SITE</span>
                     </div>
                     <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer" className="hover:text-indigo-400 transition-colors">
-                        沪ICP备2024050729号-3 [Auto Deploy Test: OK]
+                        沪ICP备2024050729号-3 [Auto Deploy: 22:47 Verified]
                     </a>
                 </div>
                 <div className="flex gap-8">
