@@ -35,11 +35,7 @@ export default function PlaceholderPage({
                         {content || (
                             <div className="space-y-6 text-slate-300 leading-relaxed text-lg text-center">
                                 <p>我们正在全力研发此模块，致力于为您提供极致的 AI 体验。</p>
-                                <p>如有任何建议或商务合作需求，欢迎联系作者：</p>
-                                <div className="inline-block px-8 py-4 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl">
-                                    <span className="text-slate-400 mr-2">微信：</span>
-                                    <span className="text-indigo-400 font-bold text-xl">aioksite</span>
-                                </div>
+                                <p>敬请期待 AIOK 的未来进化。</p>
                             </div>
                         )}
                     </div>

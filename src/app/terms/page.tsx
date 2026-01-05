@@ -13,11 +13,7 @@ export default function TermsPage() {
                         <li>本平台不提供任何医疗诊断意见</li>
                         <li>我们保留根据运营需要更新服务内容的权利</li>
                     </ul>
-                    <p>详情咨询：</p>
-                    <div className="inline-block px-8 py-4 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl w-full text-center">
-                        <span className="text-slate-400 mr-2">微信：</span>
-                        <span className="text-indigo-400 font-bold text-xl">aioksite</span>
-                    </div>
+                    <p>如需进一步了解协议详情，请参阅“联系作者”页面。</p>
                 </div>
             }
         />

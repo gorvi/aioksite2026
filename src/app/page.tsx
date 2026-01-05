@@ -61,7 +61,6 @@ export default function PortalPage() {
                 <div className="hidden sm:flex items-center gap-8 text-sm font-medium text-slate-400">
                     <Link href="/" className="text-white">发现</Link>
                     <Link href="/about" className="hover:text-white transition-colors">关于</Link>
-                    <Link href="/about" className="hover:text-white transition-colors">开发者</Link>
                 </div>
             </nav>
 
@@ -145,7 +144,7 @@ export default function PortalPage() {
                 <div className="flex gap-8">
                     <Link href="/privacy" className="hover:text-white transition-colors">隐私条款</Link>
                     <Link href="/terms" className="hover:text-white transition-colors">使用协议</Link>
-                    <Link href="/about" className="hover:text-white transition-colors">联系作者</Link>
+                    <Link href="/about" className="hover:text-white transition-colors underline underline-offset-4 decoration-indigo-500/50">联系作者</Link>
                 </div>
             </footer>
         </div>

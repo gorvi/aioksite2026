@@ -13,11 +13,7 @@ export default function PrivacyPage() {
                         <li>测评数据仅限用于结果页展示</li>
                         <li>我们不会将您的个人数据转让给任何第三方</li>
                     </ul>
-                    <p>疑问咨询：</p>
-                    <div className="inline-block px-8 py-4 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl w-full text-center">
-                        <span className="text-slate-400 mr-2">微信：</span>
-                        <span className="text-indigo-400 font-bold text-xl">aioksite</span>
-                    </div>
+                    <p>如有关于隐私政策的疑问，请通过“联系作者”页面与我取得联系。</p>
                 </div>
             }
         />
