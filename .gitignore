@@ -29,6 +29,10 @@ yarn-error.log*
 # PM2 配置文件（包含敏感信息）
 ecosystem.config.js
 
+# 激活码SQL文件（包含实际激活码）
+scripts/insert-codes*.sql
+scripts/batch-*.sql
+
 # vercel
 .vercel
 
