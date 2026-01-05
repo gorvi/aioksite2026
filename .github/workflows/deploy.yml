@@ -25,28 +25,22 @@ jobs:
             cd /www/wwwroot/aioksite2026
             
             echo "🚚 Pulling latest code..."
-            # 使用 root 拉代码后再归属给 www
             git fetch --all
             git reset --hard origin/main
             chown -R www:www .
             
-            echo "🧹 Cleaning deep caches..."
-            sudo -u www rm -rf .next
-            sudo -u www rm -rf node_modules/.cache
-            
-            echo "📦 Building as 'www' user..."
-            # 模拟 www 用户环境进行编译
+            echo "📦 Building project (this takes ~2 mins)..."
             sudo -u www npm install --production=false
             sudo -u www npm run build
             
-            echo "💀 Killing zombie processes on 3006..."
-            # 杀进程仍需 root 权限
-            fuser -k 3006/tcp || true
+            echo "🚀 Restarting Service via PM2..."
+            # 使用 sudo -u www 确保进程权属正确，先删后起最稳
             sudo -u www pm2 delete aioksite2026 || true
-            pkill -9 -u www node || true
-            
-            echo "🚀 Starting application as 'www'..."
             sudo -u www pm2 start node_modules/next/dist/bin/next --name "aioksite2026" -- start -- -p 3006
             sudo -u www pm2 save
             
-            echo "✅ Deployment Successful (User: www)!"
+            echo "🧹 Clearing Nginx Cache..."
+            rm -rf /www/server/nginx/proxy_cache_dir/*
+            /etc/init.d/nginx restart
+            
+            echo "✅ ALL SYSTEMS GO! Deployment Successful."
