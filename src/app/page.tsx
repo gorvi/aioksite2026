@@ -3,6 +3,12 @@
 import Link from 'next/link';
 import Button from '@/components/common/Button';
 import Card from '@/components/common/Card';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+    title: 'AIOK.SITE - 探索 AI 赋能的无限世界',
+    description: 'AIOK 门户首页：集成 SCL-90 心理测评、ADHD 深度觉察以及 AI 效率工坊、灵感实验室等前沿模块，助力个人成长与数字化生活。',
+};
 
 export default function PortalPage() {
     const products = [
@@ -24,7 +30,7 @@ export default function PortalPage() {
             description: '集成最前沿的 AI 能力，助你处理复杂文档、创意写作及工作流自动化。',
             icon: 'bolt',
             color: 'from-amber-400 to-orange-600',
-            link: '#',
+            link: '/smart-productivity',
             status: 'upcoming',
             tag: '即将上线'
         },
@@ -35,7 +41,7 @@ export default function PortalPage() {
             description: '探索 AI 与艺术的边界，生成独特视角的创意内容与多媒体素材。',
             icon: 'palette',
             color: 'from-purple-500 to-pink-600',
-            link: '#',
+            link: '/creative-lab',
             status: 'upcoming',
             tag: '开发中'
         }
@@ -58,8 +64,8 @@ export default function PortalPage() {
                 </div>
                 <div className="hidden sm:flex items-center gap-8 text-sm font-medium text-slate-400">
                     <Link href="/" className="text-white">发现</Link>
-                    <a href="#" className="hover:text-white transition-colors">关于</a>
-                    <a href="#" className="hover:text-white transition-colors">开发者</a>
+                    <Link href="/about" className="hover:text-white transition-colors">关于</Link>
+                    <Link href="/about" className="hover:text-white transition-colors">开发者</Link>
                 </div>
             </nav>
 
@@ -109,15 +115,17 @@ export default function PortalPage() {
 
                                 {product.status === 'active' ? (
                                     <Link href={product.link}>
-                                        <Button className="w-full bg-white text-black hover:bg-slate-200 rounded-xl py-6 font-bold flex items-center justify-center gap-2 group-hover:gap-4 transition-all">
+                                        <div className="w-full bg-slate-100 text-slate-900 border border-white/50 hover:bg-white active:scale-[0.98] rounded-xl py-4 font-bold flex items-center justify-center gap-2 group-hover:gap-4 transition-all cursor-pointer shadow-lg shadow-white/5">
                                             进入应用
                                             <span className="material-symbols-outlined text-sm">arrow_forward</span>
-                                        </Button>
+                                        </div>
                                     </Link>
                                 ) : (
-                                    <Button disabled className="w-full bg-slate-800 text-slate-500 rounded-xl py-6 font-bold">
-                                        敬请期待
-                                    </Button>
+                                    <Link href={product.link}>
+                                        <div className="w-full bg-slate-800/50 text-slate-500 border border-slate-700/50 hover:border-slate-600 transition-colors rounded-xl py-4 font-bold flex items-center justify-center cursor-pointer">
+                                            敬请期待
+                                        </div>
+                                    </Link>
                                 )}
                             </div>
 
@@ -129,14 +137,19 @@ export default function PortalPage() {
             </main>
 
             <footer className="relative z-10 px-8 py-12 border-t border-slate-900 flex flex-col sm:flex-row justify-between items-center gap-6 text-slate-500 text-sm">
-                <div className="flex items-center gap-2">
-                    <div className="w-6 h-6 bg-slate-800 rounded flex items-center justify-center text-[10px] font-bold">A</div>
-                    <span>&copy; 2024 AIOK.SITE</span>
+                <div className="flex flex-col sm:flex-row items-center gap-6">
+                    <div className="flex items-center gap-2 border-r border-slate-800 pr-6">
+                        <div className="w-6 h-6 bg-slate-800 rounded flex items-center justify-center text-[10px] font-bold">A</div>
+                        <span className="font-medium">&copy; 2024-2026 AIOK.SITE</span>
+                    </div>
+                    <a href="https://beian.miit.gov.cn/" target="_blank" rel="noreferrer" className="hover:text-indigo-400 transition-colors">
+                        沪ICP备2024050729号-3
+                    </a>
                 </div>
                 <div className="flex gap-8">
-                    <a href="#" className="hover:text-white transition-colors">隐私条款</a>
-                    <a href="#" className="hover:text-white transition-colors">使用协议</a>
-                    <a href="#" className="hover:text-white transition-colors">联系作者</a>
+                    <Link href="/privacy" className="hover:text-white transition-colors">隐私条款</Link>
+                    <Link href="/terms" className="hover:text-white transition-colors">使用协议</Link>
+                    <Link href="/about" className="hover:text-white transition-colors">联系作者</Link>
                 </div>
             </footer>
         </div>
