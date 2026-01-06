@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import {
     Radar,
     RadarChart,
@@ -9,7 +9,6 @@ import {
     PolarRadiusAxis,
     ResponsiveContainer,
     Legend,
-    Label,
 } from 'recharts';
 
 interface RadarChartProps {
@@ -24,51 +23,6 @@ interface RadarChartProps {
     color?: string;
 }
 
-// 自定义标签渲染函数 - 在外围显示分数
-const renderCustomLabel = (props: any) => {
-    const { cx, cy, value, index, payload } = props;
-    
-    // 如果没有值，不显示标签
-    if (value === undefined || value === null) {
-        return null;
-    }
-    
-    // 计算数据点数量
-    const dataLength = props.dataLength || 10;
-    
-    // 计算角度（从90度开始，逆时针）
-    const RADIAN = Math.PI / 180;
-    const angle = 90 - (360 / dataLength) * index;
-    
-    // 半径 - 使用较大的值让分数显示在外围
-    const radius = 120; // 固定半径，确保在外围
-    
-    // 计算坐标
-    const x = cx + radius * Math.cos(angle * RADIAN);
-    const y = cy - radius * Math.sin(angle * RADIAN);
-    
-    // 根据角度决定文字对齐方式
-    let textAnchor: 'start' | 'middle' | 'end' = 'middle';
-    if (angle > 90 && angle < 270) {
-        textAnchor = 'end';
-    } else if (angle >= 270 || angle <= 90) {
-        textAnchor = 'start';
-    }
-    
-    return (
-        <text
-            x={x}
-            y={y}
-            textAnchor={textAnchor}
-            fill="#2563eb"
-            fontSize="13"
-            fontWeight="700"
-        >
-            {value.toFixed(2)}
-        </text>
-    );
-};
-
 export default function RadarChartComponent({
     data,
     width = '100%',
@@ -76,18 +30,93 @@ export default function RadarChartComponent({
     outerRadius = '70%',
     color = '#8884d8', // default purple-ish
 }: RadarChartProps) {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
+    
     // 确保数据中包含 fullMark，用于设定坐标轴范围
     const maxMark = data.length > 0 ? data[0].fullMark : 100;
-
-    // 创建包装函数，传递数据长度
-    const labelRenderer = (props: any) => {
-        return renderCustomLabel({ ...props, dataLength: data.length });
+    
+    // 获取容器尺寸
+    useEffect(() => {
+        if (containerRef.current) {
+            const updateDimensions = () => {
+                const rect = containerRef.current?.getBoundingClientRect();
+                if (rect) {
+                    setDimensions({ width: rect.width, height: rect.height });
+                }
+            };
+            
+            updateDimensions();
+            window.addEventListener('resize', updateDimensions);
+            return () => window.removeEventListener('resize', updateDimensions);
+        }
+    }, []);
+    
+    // 计算标签位置
+    const calculateLabelPositions = () => {
+        if (!dimensions.width || !dimensions.height) return [];
+        
+        const cx = dimensions.width / 2;
+        const cy = dimensions.height / 2;
+        const RADIAN = Math.PI / 180;
+        const dataLength = data.length;
+        
+        // 计算实际半径
+        let radius = Math.min(cx, cy);
+        if (typeof outerRadius === 'string' && outerRadius.includes('%')) {
+            const percentage = parseInt(outerRadius) / 100;
+            radius = radius * percentage;
+        } else if (typeof outerRadius === 'number') {
+            radius = outerRadius;
+        }
+        
+        // 标签显示在外围，距离中心更远
+        const labelRadius = radius + 35;
+        
+        return data.map((item, index) => {
+            // 计算角度（从90度开始，逆时针）
+            const angle = 90 - (360 / dataLength) * index;
+            
+            // 计算坐标
+            const x = cx + labelRadius * Math.cos(angle * RADIAN);
+            const y = cy - labelRadius * Math.sin(angle * RADIAN);
+            
+            // 根据角度决定文字对齐方式
+            let textAlign: 'left' | 'center' | 'right' = 'center';
+            if (angle > 85 && angle < 275) {
+                textAlign = 'right';
+            } else if (angle >= 275 || angle <= 85) {
+                textAlign = 'left';
+            }
+            
+            return {
+                x,
+                y,
+                value: item.A,
+                textAlign,
+            };
+        });
     };
+    
+    const labelPositions = calculateLabelPositions();
 
     return (
-        <div style={{ width: typeof width === 'number' ? `${width}px` : width, height: `${height}px` }} className="mx-auto">
+        <div 
+            ref={containerRef}
+            style={{ 
+                width: typeof width === 'number' ? `${width}px` : width, 
+                height: `${height}px`,
+                position: 'relative'
+            }} 
+            className="mx-auto"
+        >
             <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius={outerRadius} data={data}>
+                <RadarChart 
+                    cx="50%" 
+                    cy="50%" 
+                    outerRadius={outerRadius} 
+                    data={data}
+                >
                     <PolarGrid stroke="#e2e8f0" />
                     <PolarAngleAxis
                         dataKey="subject"
@@ -102,16 +131,36 @@ export default function RadarChartComponent({
                     <Radar
                         name="当前得分"
                         dataKey="A"
-                        stroke="#2563eb" // primary blue
+                        stroke="#2563eb"
                         strokeWidth={2}
-                        fill="#3b82f6" // blue-500
+                        fill="#3b82f6"
                         fillOpacity={0.4}
-                        label={labelRenderer}
                         dot={{ fill: '#2563eb', r: 4 }}
                     />
                     <Legend />
                 </RadarChart>
             </ResponsiveContainer>
+            
+            {/* 叠加的分数标签 */}
+            {labelPositions.map((pos, index) => (
+                <div
+                    key={`label-${index}`}
+                    style={{
+                        position: 'absolute',
+                        left: `${pos.x}px`,
+                        top: `${pos.y}px`,
+                        transform: 'translate(-50%, -50%)',
+                        color: '#2563eb',
+                        fontSize: '13px',
+                        fontWeight: '700',
+                        textAlign: pos.textAlign,
+                        pointerEvents: 'none',
+                        whiteSpace: 'nowrap',
+                    }}
+                >
+                    {pos.value.toFixed(2)}
+                </div>
+            ))}
         </div>
     );
 }
