@@ -213,114 +213,176 @@ export default function Scl90ResultPage() {
 
                 {/* 关键数据展示 - 2列紧凑布局 */}
                 <div className="grid grid-cols-2 gap-3">
-                  {/* 总分 - 仪表盘样式 */}
+                  {/* 总分 - 多色仪表盘样式（参考图1） */}
                   <div className="col-span-2">
-                    <div className="relative bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-xl p-6 text-white shadow-xl overflow-hidden">
-                      {/* 背景装饰 */}
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
-                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
-                      
-                      <div className="relative z-10">
-                        <div className="text-blue-100 text-xs font-medium mb-3 flex items-center gap-1">
-                          <span>总分</span>
-                        </div>
-                        
-                        {/* 仪表盘主体 */}
-                        <div className="flex items-center justify-between">
-                          {/* 左侧：半圆仪表盘 */}
-                          <div className="relative w-32 h-20">
-                            {/* 背景半圆 */}
-                            <svg viewBox="0 0 120 60" className="w-full h-full">
-                              {/* 背景轨道 */}
-                              <path
-                                d="M 10 55 A 50 50 0 0 1 110 55"
-                                fill="none"
-                                stroke="rgba(255,255,255,0.2)"
-                                strokeWidth="12"
-                                strokeLinecap="round"
+                    <div className="relative bg-white dark:bg-slate-800 rounded-xl p-6 shadow-xl">
+                      {/* 多色半圆仪表盘 */}
+                      <div className="flex flex-col items-center">
+                        <div className="relative w-64 h-36 mb-4">
+                          <svg viewBox="0 0 200 110" className="w-full h-full">
+                            {/* 定义渐变色 */}
+                            <defs>
+                              <linearGradient id="gaugeGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style={{ stopColor: '#22c55e', stopOpacity: 1 }} /> {/* 绿色 */}
+                                <stop offset="20%" style={{ stopColor: '#84cc16', stopOpacity: 1 }} /> {/* 黄绿 */}
+                                <stop offset="40%" style={{ stopColor: '#eab308', stopOpacity: 1 }} /> {/* 黄色 */}
+                                <stop offset="60%" style={{ stopColor: '#f97316', stopOpacity: 1 }} /> {/* 橙色 */}
+                                <stop offset="100%" style={{ stopColor: '#dc2626', stopOpacity: 1 }} /> {/* 红色 */}
+                              </linearGradient>
+                            </defs>
+                            
+                            {/* 分段彩色弧线 */}
+                            {/* 绿色段 (0-72分, 0-20%) */}
+                            <path
+                              d="M 20 95 A 80 80 0 0 1 56 25"
+                              fill="none"
+                              stroke="#22c55e"
+                              strokeWidth="20"
+                              strokeLinecap="round"
+                            />
+                            {/* 黄绿段 (72-144分, 20-40%) */}
+                            <path
+                              d="M 56 25 A 80 80 0 0 1 100 10"
+                              fill="none"
+                              stroke="#84cc16"
+                              strokeWidth="20"
+                              strokeLinecap="round"
+                            />
+                            {/* 黄色段 (144-216分, 40-60%) */}
+                            <path
+                              d="M 100 10 A 80 80 0 0 1 144 25"
+                              fill="none"
+                              stroke="#eab308"
+                              strokeWidth="20"
+                              strokeLinecap="round"
+                            />
+                            {/* 橙色段 (216-288分, 60-80%) */}
+                            <path
+                              d="M 144 25 A 80 80 0 0 1 180 95"
+                              fill="none"
+                              stroke="#f97316"
+                              strokeWidth="20"
+                              strokeLinecap="round"
+                            />
+                            {/* 红色段 (288-360分, 80-100%) - 延伸到顶部 */}
+                            <path
+                              d="M 144 25 A 80 80 0 0 1 180 95"
+                              fill="none"
+                              stroke="#dc2626"
+                              strokeWidth="20"
+                              strokeLinecap="round"
+                              opacity="0"
+                            />
+                            
+                            {/* 指针 - 颜色根据分数动态变化 */}
+                            <g transform={`rotate(${-90 + ((result.raw_total_score || 0) / 360) * 180} 100 95)`}>
+                              <polygon
+                                points="100,35 97,95 103,95"
+                                fill={
+                                  (result.raw_total_score || 0) < 72 ? '#22c55e' :
+                                  (result.raw_total_score || 0) < 144 ? '#84cc16' :
+                                  (result.raw_total_score || 0) < 216 ? '#eab308' :
+                                  (result.raw_total_score || 0) < 288 ? '#f97316' : '#dc2626'
+                                }
                               />
-                              {/* 进度弧 */}
-                              <path
-                                d="M 10 55 A 50 50 0 0 1 110 55"
-                                fill="none"
-                                stroke="white"
-                                strokeWidth="12"
-                                strokeLinecap="round"
-                                strokeDasharray={`${((result.raw_total_score || 0) / 360) * 157} 157`}
-                                className="transition-all duration-1000"
+                              <circle 
+                                cx="100" 
+                                cy="95" 
+                                r="6" 
+                                fill={
+                                  (result.raw_total_score || 0) < 72 ? '#22c55e' :
+                                  (result.raw_total_score || 0) < 144 ? '#84cc16' :
+                                  (result.raw_total_score || 0) < 216 ? '#eab308' :
+                                  (result.raw_total_score || 0) < 288 ? '#f97316' : '#dc2626'
+                                }
                               />
-                              {/* 指针三角形 */}
-                              <g transform={`rotate(${-90 + ((result.raw_total_score || 0) / 360) * 180} 60 55)`}>
-                                <polygon
-                                  points="60,30 58,55 62,55"
-                                  fill="white"
-                                  opacity="0.9"
-                                />
-                              </g>
-                            </svg>
-                            {/* 中心数值 */}
-                            <div className="absolute inset-0 flex items-end justify-center pb-1">
-                              <div className="text-center">
-                                <div className="text-2xl font-bold leading-none">{result.raw_total_score || 0}</div>
+                            </g>
+                            
+                            {/* 刻度文字 */}
+                            <text x="15" y="105" fontSize="10" fill="#64748b" textAnchor="middle">优秀</text>
+                            <text x="50" y="20" fontSize="10" fill="#64748b" textAnchor="middle">良好</text>
+                            <text x="100" y="8" fontSize="10" fill="#64748b" textAnchor="middle">一般</text>
+                            <text x="150" y="20" fontSize="10" fill="#64748b" textAnchor="middle">较差</text>
+                            <text x="185" y="105" fontSize="10" fill="#64748b" textAnchor="middle">很差</text>
+                          </svg>
+                          
+                          {/* 中心大数字 - 颜色根据分数动态变化 */}
+                          <div className="absolute inset-0 flex items-end justify-center pb-2">
+                            <div className="text-center">
+                              <div className={`text-5xl font-bold ${
+                                (result.raw_total_score || 0) < 72 ? 'text-green-600' :
+                                (result.raw_total_score || 0) < 144 ? 'text-lime-600' :
+                                (result.raw_total_score || 0) < 216 ? 'text-yellow-600' :
+                                (result.raw_total_score || 0) < 288 ? 'text-orange-600' :
+                                'text-red-600'
+                              }`}>
+                                {result.raw_total_score || 0}
                               </div>
                             </div>
                           </div>
-                          
-                          {/* 右侧：分数说明 */}
-                          <div className="flex-1 ml-4">
-                            <div className="flex items-baseline gap-2 mb-1">
-                              <span className="text-4xl font-bold">{result.raw_total_score || 0}</span>
-                              <span className="text-blue-200 text-sm">/ 360 分</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-xs text-blue-100">
-                              <span className="px-2 py-0.5 bg-white/20 rounded">0-4 分制</span>
-                              <span>90题×4分</span>
-                            </div>
-                          </div>
-                          
-                          {/* 装饰图标 */}
-                          <div className="text-5xl opacity-10 absolute right-4 top-4">📊</div>
                         </div>
                         
-                        {/* 健康水平文字 */}
-                        <div className="mt-3 pt-3 border-t border-white/20">
-                          <div className="text-xs text-blue-100">
+                        {/* 心理健康水平文字 */}
+                        <div className="text-center mb-6">
+                          <div className="text-sm text-slate-600 dark:text-slate-400">
                             心理健康水平：
-                            <span className="ml-1 font-semibold text-white">
-                              {result.overall_status === 'stable' ? '良好' : 
-                               result.overall_status === 'pressure' ? '一般' : '需关注'}
+                            <span className={`ml-1 font-bold ${
+                              (result.raw_total_score || 0) < 72 ? 'text-green-600' :
+                              (result.raw_total_score || 0) < 144 ? 'text-lime-600' :
+                              (result.raw_total_score || 0) < 216 ? 'text-yellow-600' :
+                              (result.raw_total_score || 0) < 288 ? 'text-orange-600' :
+                              'text-red-600'
+                            }`}>
+                              {(result.raw_total_score || 0) < 72 ? '优秀' :
+                               (result.raw_total_score || 0) < 144 ? '良好' :
+                               (result.raw_total_score || 0) < 216 ? '一般' :
+                               (result.raw_total_score || 0) < 288 ? '较差' : '很差'}
                             </span>
                           </div>
                         </div>
+                        
+                        {/* 数据表格 */}
+                        <div className="w-full grid grid-cols-4 gap-4 text-center text-sm">
+                          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                            <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">项目</div>
+                            <div className="font-bold text-slate-900 dark:text-white">总分</div>
+                          </div>
+                          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                            <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">评分</div>
+                            <div className="font-bold text-slate-900 dark:text-white">{result.raw_total_score || 0}</div>
+                          </div>
+                          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                            <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">项目</div>
+                            <div className="font-bold text-slate-900 dark:text-white">总均分</div>
+                          </div>
+                          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                            <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">评分</div>
+                            <div className="font-bold text-slate-900 dark:text-white">{result.total_score.toFixed(2)}</div>
+                          </div>
+                          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                            <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">项目</div>
+                            <div className="font-bold text-slate-900 dark:text-white">阳性</div>
+                          </div>
+                          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                            <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">评分</div>
+                            <div className="font-bold text-slate-900 dark:text-white">{result.positive_items_count || 0}</div>
+                          </div>
+                          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                            <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">项目</div>
+                            <div className="font-bold text-slate-900 dark:text-white">阴性</div>
+                          </div>
+                          <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
+                            <div className="text-slate-500 dark:text-slate-400 text-xs mb-1">评分</div>
+                            <div className="font-bold text-slate-900 dark:text-white">{90 - (result.positive_items_count || 0)}</div>
+                          </div>
+                        </div>
+                        
+                        {/* 提示文字 */}
+                        <div className="mt-4 text-xs text-slate-500 dark:text-slate-400 text-center">
+                          注意：总分超过160，或者阳性项目数超过43项，需要引起注意，建议到专业机构进一步检查。
+                        </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* 总均分 */}
-                  <div className="bg-gradient-to-br from-purple-500 to-pink-600 rounded-xl p-4 text-white shadow-lg">
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex-1">
-                        <div className="text-purple-100 text-xs font-medium mb-1">总均分</div>
-                        <div className="text-3xl font-bold">{result.total_score.toFixed(2)}</div>
-                      </div>
-                      <div className="text-3xl opacity-20">📈</div>
-                    </div>
-                    <div className="text-purple-200 text-xs">0-4 分制</div>
-                  </div>
-
-                  {/* 阳性项目 */}
-                  <div className={`rounded-xl p-4 text-white shadow-lg ${(result.positive_items_count || 0) > 43
-                    ? 'bg-gradient-to-br from-orange-500 to-red-600'
-                    : 'bg-gradient-to-br from-green-500 to-teal-600'
-                    }`}>
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex-1">
-                        <div className="text-white/90 text-xs font-medium mb-1">阳性项目</div>
-                        <div className="text-3xl font-bold">{result.positive_items_count || 0}</div>
-                      </div>
-                      <div className="text-3xl opacity-20">{(result.positive_items_count || 0) > 43 ? '⚠️' : '✅'}</div>
-                    </div>
-                    <div className="text-white/80 text-xs">/ 90 题</div>
                   </div>
                 </div>
 
