@@ -21,6 +21,7 @@ export default function ActivationCodeModal({
     const [code, setCode] = useState('');
     const [isVerifying, setIsVerifying] = useState(false);
     const [error, setError] = useState('');
+    const [showQRCodePreview, setShowQRCodePreview] = useState(false);
 
     if (!isOpen) return null;
 
@@ -48,12 +49,24 @@ export default function ActivationCodeModal({
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-200">
-                {/* 顶部装饰 */}
-                <div className="h-3 bg-gradient-to-r from-primary to-purple-500" />
+        <>
+            <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in duration-200">
+                <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden animate-in zoom-in-95 duration-200 relative">
+                    {/* 顶部装饰 */}
+                    <div className="h-3 bg-gradient-to-r from-primary to-purple-500" />
 
-                <div className="p-8">
+                    {/* 关闭按钮 */}
+                    <button
+                        onClick={onClose}
+                        className="absolute top-6 right-6 z-10 w-8 h-8 flex items-center justify-center rounded-full bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors group"
+                        aria-label="关闭"
+                    >
+                        <span className="material-symbols-outlined text-slate-600 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-white text-[20px]">
+                            close
+                        </span>
+                    </button>
+
+                    <div className="p-8">
                     <div className="text-center mb-8">
                         <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                             <span className="material-symbols-outlined text-3xl text-primary">lock_open</span>
@@ -123,21 +136,63 @@ export default function ActivationCodeModal({
                                     <span className="text-red-500 text-lg">📱</span>
                                     用小红书扫码获取激活码
                                 </p>
-                                <div className="bg-white p-3 rounded-xl shadow-md">
+                                <div 
+                                    className="bg-white p-3 rounded-xl shadow-md cursor-pointer hover:shadow-lg transition-shadow group relative"
+                                    onClick={() => setShowQRCodePreview(true)}
+                                >
                                     <img 
                                         src="/images/xhsxz.png" 
                                         alt="小红书二维码" 
                                         className="w-40 h-40 object-contain"
                                     />
+                                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 rounded-xl transition-colors flex items-center justify-center">
+                                        <span className="material-symbols-outlined text-white opacity-0 group-hover:opacity-100 transition-opacity text-3xl">
+                                            zoom_in
+                                        </span>
+                                    </div>
                                 </div>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    扫描二维码关注小红书「心智研习社」
+                                    扫描二维码关注小红书「心智研习社」<br />
+                                    <span className="text-primary">点击图片可放大</span>
                                 </p>
                             </div>
                         </div>
                     </div>
+                    </div>
                 </div>
             </div>
-        </div>
+
+            {/* 二维码图片预览模态框 */}
+            {showQRCodePreview && (
+                <div 
+                    className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/90 backdrop-blur-sm animate-in fade-in duration-200"
+                    onClick={() => setShowQRCodePreview(false)}
+                >
+                    <div className="relative animate-in zoom-in-95 duration-200">
+                        {/* 关闭按钮 */}
+                        <button
+                            onClick={() => setShowQRCodePreview(false)}
+                            className="absolute -top-12 right-0 flex items-center gap-2 text-white hover:text-slate-200 transition-colors"
+                        >
+                            <span className="text-sm font-medium">关闭</span>
+                            <span className="material-symbols-outlined text-2xl">close</span>
+                        </button>
+                        
+                        {/* 原图大小的二维码 */}
+                        <div className="bg-white p-6 rounded-2xl shadow-2xl">
+                            <img 
+                                src="/images/xhsxz.png" 
+                                alt="小红书二维码 - 原图" 
+                                className="max-w-[90vw] max-h-[80vh] w-auto h-auto object-contain"
+                                onClick={(e) => e.stopPropagation()}
+                            />
+                            <p className="text-center text-slate-600 text-sm mt-4">
+                                扫描二维码关注小红书「心智研习社」获取激活码
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
     );
 }
