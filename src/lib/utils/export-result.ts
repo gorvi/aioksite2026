@@ -12,18 +12,59 @@ import html2canvas from 'html2canvas';
 
 // 导出配置
 const EXPORT_CONFIG = {
-  scale: 2,   // 2倍图，保证清晰度
-  padding: 40, // 内边距
-  defaultWidth: 1200, // 默认强制使用桌面端宽度
+  desktopScale: 2,    // 桌面端缩放
+  mobileScale: 2.5,   // 移动端缩放（更高清）
+  desktopPadding: 40, // 桌面端内边距
+  mobilePadding: 20,  // 移动端内边距（更紧凑）
+  desktopWidth: 1200, // 桌面端宽度
+  mobileWidth: 750,   // 移动端宽度（适合手机屏幕）
 };
+
+/**
+ * 检测是否为移动设备
+ */
+function isMobileDevice(): boolean {
+  // 检测屏幕宽度
+  const screenWidth = window.innerWidth;
+  if (screenWidth <= 768) return true;
+  
+  // 检测 User Agent
+  const ua = navigator.userAgent.toLowerCase();
+  return /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(ua);
+}
+
+/**
+ * 获取导出宽度（根据设备类型）
+ */
+function getExportWidth(): number {
+  return isMobileDevice() ? EXPORT_CONFIG.mobileWidth : EXPORT_CONFIG.desktopWidth;
+}
+
+/**
+ * 获取导出缩放比例（根据设备类型）
+ */
+function getExportScale(): number {
+  return isMobileDevice() ? EXPORT_CONFIG.mobileScale : EXPORT_CONFIG.desktopScale;
+}
+
+/**
+ * 获取导出内边距（根据设备类型）
+ */
+function getExportPadding(): number {
+  return isMobileDevice() ? EXPORT_CONFIG.mobilePadding : EXPORT_CONFIG.desktopPadding;
+}
 
 /**
  * 准备克隆元素用于导出
  * @param elementId 目标元素ID
- * @param forceWidth 强制宽度 (可选)
+ * @param forceWidth 强制宽度 (可选，默认根据设备类型自动选择)
  * @returns 克隆的容器（包含克隆体），如果失败返回 null
  */
-async function prepareCloneForExport(elementId: string, forceWidth: number = EXPORT_CONFIG.defaultWidth): Promise<HTMLElement | null> {
+async function prepareCloneForExport(elementId: string, forceWidth?: number): Promise<HTMLElement | null> {
+  // 如果没有指定宽度，根据设备类型自动选择
+  const actualForceWidth = forceWidth || getExportWidth();
+  const padding = getExportPadding();
+  
   const originalElement = document.getElementById(elementId);
   if (!originalElement) {
     console.error('❌ 找不到需要导出的元素');
@@ -33,8 +74,8 @@ async function prepareCloneForExport(elementId: string, forceWidth: number = EXP
   // 1. 获取原始元素的实际尺寸和样式
   const computedStyle = window.getComputedStyle(originalElement);
 
-  // 使用强制宽度，或者原始宽度（取大值）
-  const actualWidth = forceWidth;
+  // 使用强制宽度
+  const actualWidth = actualForceWidth;
   // 高度设为 auto，让内容自适应
 
   // 2. 创建隐藏的沙箱容器
@@ -43,7 +84,7 @@ async function prepareCloneForExport(elementId: string, forceWidth: number = EXP
   sandbox.style.position = 'absolute';
   sandbox.style.top = '0';
   sandbox.style.left = '0';
-  sandbox.style.width = `${actualWidth + EXPORT_CONFIG.padding * 2}px`;
+  sandbox.style.width = `${actualWidth + padding * 2}px`;
   sandbox.style.zIndex = '-9999';
   sandbox.style.visibility = 'visible';
   sandbox.style.backgroundColor = computedStyle.backgroundColor || '#ffffff';
@@ -121,7 +162,7 @@ async function prepareCloneForExport(elementId: string, forceWidth: number = EXP
 
   // 8. 将克隆体放入包装器
   const wrapper = document.createElement('div');
-  wrapper.style.padding = `${EXPORT_CONFIG.padding}px`;
+  wrapper.style.padding = `${padding}px`;
   wrapper.style.boxSizing = 'border-box';
   wrapper.style.width = '100%';
   wrapper.style.display = 'flex';
@@ -174,9 +215,15 @@ function cleanupSandbox() {
  * @returns Promise<{ canvas: HTMLCanvasElement, cleanup: () => void } | null>
  */
 async function generateImageCanvas(elementId: string): Promise<{ canvas: HTMLCanvasElement, cleanup: () => void } | null> {
-  // 1. 准备环境 (强制桌面宽度)
-  const forceWidth = EXPORT_CONFIG.defaultWidth;
-  const sandbox = await prepareCloneForExport(elementId, forceWidth);
+  // 1. 准备环境 (根据设备自动选择宽度)
+  const exportWidth = getExportWidth();
+  const exportScale = getExportScale();
+  const exportPadding = getExportPadding();
+  const isMobile = isMobileDevice();
+  
+  console.log(`📱 导出设备信息: ${isMobile ? '移动端' : '桌面端'}, 宽度=${exportWidth}px, 缩放=${exportScale}x, 边距=${exportPadding}px`);
+  
+  const sandbox = await prepareCloneForExport(elementId, exportWidth);
 
   if (!sandbox) return null;
 
@@ -190,13 +237,13 @@ async function generateImageCanvas(elementId: string): Promise<{ canvas: HTMLCan
 
   try {
     // 2. 计算包含 padding 的总尺寸
-    const totalWidth = forceWidth + EXPORT_CONFIG.padding * 2;
+    const totalWidth = exportWidth + exportPadding * 2;
     const totalHeight = sandbox.offsetHeight;
 
     // 3. 配置 html2canvas
     const options: any = {
       backgroundColor: sandbox.style.backgroundColor,
-      scale: EXPORT_CONFIG.scale,
+      scale: exportScale,
       useCORS: true,
       allowTaint: true,
       logging: false,
@@ -212,18 +259,41 @@ async function generateImageCanvas(elementId: string): Promise<{ canvas: HTMLCan
       onclone: (clonedDoc: Document) => {
         // 确保 Material Symbols 字体正确加载
         const style = clonedDoc.createElement('style');
-        style.textContent = `
-          @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
-          * {
-            font-family: inherit;
-          }
-          /* 强制 Tailwind lg 断点生效 */
-          @media (min-width: 1024px) {
-            .lg\\:grid-cols-2 {
-              grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        
+        // 根据设备类型注入不同的样式
+        if (isMobile) {
+          // 移动端样式优化
+          style.textContent = `
+            @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+            * {
+              font-family: inherit;
             }
-          }
-        `;
+            /* 移动端：优化间距和字体大小 */
+            body {
+              font-size: 14px;
+            }
+            /* 确保仪表盘在移动端正常显示 */
+            svg {
+              max-width: 100%;
+              height: auto;
+            }
+          `;
+        } else {
+          // 桌面端样式
+          style.textContent = `
+            @import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+            * {
+              font-family: inherit;
+            }
+            /* 强制 Tailwind lg 断点生效 */
+            @media (min-width: 1024px) {
+              .lg\\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+              }
+            }
+          `;
+        }
+        
         clonedDoc.head.appendChild(style);
       },
     };
