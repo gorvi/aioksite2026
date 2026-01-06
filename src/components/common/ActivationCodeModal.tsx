@@ -115,23 +115,25 @@ export default function ActivationCodeModal({
                         </div>
 
                         <div className="text-center">
-                            <p className="text-sm text-slate-600 dark:text-slate-400 mb-2">
+                            <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
                                 还没有激活码？
                             </p>
-                            <a
-                                href="#" // 这里后续可以替换为具体的小红书链接
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-primary hover:text-primary-hover font-medium transition-colors"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    // 可以在这里加一个 toast 提示或者复制口令逻辑
-                                    alert('请前往小红书搜索"Antigravity测评"获取获取激活码');
-                                }}
-                            >
-                                前往获取激活码
-                                <span className="material-symbols-outlined text-[16px]">open_in_new</span>
-                            </a>
+                            <div className="flex flex-col items-center gap-3">
+                                <p className="text-sm font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2">
+                                    <span className="text-red-500 text-lg">📱</span>
+                                    用小红书扫码获取激活码
+                                </p>
+                                <div className="bg-white p-3 rounded-xl shadow-md">
+                                    <img 
+                                        src="/images/xhsxz.png" 
+                                        alt="小红书二维码" 
+                                        className="w-40 h-40 object-contain"
+                                    />
+                                </div>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">
+                                    扫描二维码关注小红书「心智研习社」
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
