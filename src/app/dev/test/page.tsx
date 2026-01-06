@@ -18,32 +18,32 @@ export default function DevTestPage() {
   const router = useRouter();
   const [isGenerating, setIsGenerating] = useState(false);
 
-  // 生成随机 SCL-90 答案
+  // 生成随机 SCL-90 答案（标准版：0-4分制）
   const generateScl90Answers = () => {
     const answers = SCL90_QUESTIONS.map((question, index) => {
       // 随机生成答案，但偏向于生成一些有意义的分布
-      // 70% 概率选择 1-2（正常），30% 概率选择 3-5（需关注）
+      // 70% 概率选择 0-1（正常），30% 概率选择 2-4（需关注）
       const random = Math.random();
-      let score: 1 | 2 | 3 | 4 | 5;
+      let score: 0 | 1 | 2 | 3 | 4;
       
       if (random < 0.5) {
-        score = 1; // 没有
+        score = 0; // 没有
       } else if (random < 0.7) {
-        score = 2; // 很轻
+        score = 1; // 很轻
       } else if (random < 0.85) {
-        score = 3; // 中等
+        score = 2; // 中等
       } else if (random < 0.95) {
-        score = 4; // 偏重
+        score = 3; // 偏重
       } else {
-        score = 5; // 严重
+        score = 4; // 严重
       }
 
       return {
         questionId: question.id,
         questionNumber: index + 1,
         dimension: question.dimension,
-        answer: score as 1 | 2 | 3 | 4 | 5,
-        score: score as 1 | 2 | 3 | 4 | 5,
+        answer: score as 0 | 1 | 2 | 3 | 4,
+        score: score as 0 | 1 | 2 | 3 | 4,
       };
     });
 

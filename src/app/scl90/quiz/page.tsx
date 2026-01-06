@@ -6,7 +6,7 @@ import Button from '@/components/common/Button';
 import { SCL90_QUESTIONS, SCL90_OPTIONS, type Scl90Question } from '@/lib/data/scl90-questions';
 import { SCL90_TOTAL_QUESTIONS } from '@/lib/constants';
 
-type Answer = 1 | 2 | 3 | 4 | 5 | null;
+type Answer = 0 | 1 | 2 | 3 | 4 | null;  // 标准SCL-90：0-4分制
 
 export default function Scl90QuizPage() {
   const router = useRouter();
@@ -51,7 +51,7 @@ export default function Scl90QuizPage() {
     localStorage.setItem('scl90_answers', JSON.stringify(newAnswers));
   };
 
-  const handleAnswerSelect = (value: 1 | 2 | 3 | 4 | 5) => {
+  const handleAnswerSelect = (value: 0 | 1 | 2 | 3 | 4) => {
     saveAnswer(currentIndex, value);
     
     // 自动进入下一题

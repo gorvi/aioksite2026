@@ -40,8 +40,8 @@ export default function Scl90ConfirmPage() {
         questionId: index + 1,
         questionNumber: index + 1,
         dimension: SCL90_QUESTIONS[index].dimension,
-        answer: answer as 1 | 2 | 3 | 4 | 5,
-        score: answer as 1 | 2 | 3 | 4 | 5,
+        answer: answer as 0 | 1 | 2 | 3 | 4,  // 标准SCL-90：0-4分制
+        score: answer as 0 | 1 | 2 | 3 | 4,
       }));
 
       const res = await fetch('/api/test/submit', {

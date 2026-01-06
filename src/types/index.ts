@@ -23,29 +23,32 @@ export interface SerialNumber {
   updated_at: string;
 }
 
-// SCL-90 相关
+// SCL-90 相关（标准版：0-4分制）
 export interface Scl90Test {
   id: number;
   serial_number: string;
   nickname?: string | null; // 用户昵称
   report_number?: string | null; // 报告编号
   raw_total_score?: number; // 原始总分（90题总分）
-  total_score: number; // 总均分
+  total_score: number; // 总均分（总分÷90）
   overall_status: 'stable' | 'pressure' | 'obvious';
   factor_scores: {
-    somatization: number;
-    obsessive_compulsive: number;
-    interpersonal_sensitivity: number;
-    depression: number;
-    anxiety: number;
-    hostility: number;
-    phobic_anxiety: number;
-    paranoid_ideation: number;
-    psychoticism: number;
+    somatization: number;           // 躯体化
+    obsessive_compulsive: number;   // 强迫症状
+    interpersonal_sensitivity: number; // 人际关系敏感
+    depression: number;              // 抑郁
+    anxiety: number;                 // 焦虑
+    hostility: number;               // 敌对
+    phobic_anxiety: number;          // 恐怖
+    paranoid_ideation: number;       // 偏执
+    psychoticism: number;            // 精神病性
   };
-  attention_items_count?: number; // 需关注项目数（得分 ≥ 2）
-  normal_items_count?: number; // 正常项目数（得分 < 2）
-  attention_items_average?: number; // 需关注项目平均分
+  positive_items_count?: number;     // 阳性项目数（得分 ≥ 2）
+  positive_items_average?: number;   // 阳性症状均分
+  // 附加项相关（7项：19, 44, 59, 60, 64, 66, 89）
+  additional_items_scores?: Record<number, number>; // 附加项各题得分
+  additional_items_total?: number;   // 附加项总分
+  additional_items_average?: number; // 附加项均分
   // 常模数据相关（可选）
   factor_levels?: {
     somatization?: 'light' | 'moderate' | 'severe' | 'extremelySevere';
@@ -69,8 +72,8 @@ export interface Scl90Answer {
   test_id: number;
   question_number: number;
   dimension: string;
-  answer: 1 | 2 | 3 | 4 | 5;
-  score: 1 | 2 | 3 | 4 | 5;
+  answer: 0 | 1 | 2 | 3 | 4;  // 标准SCL-90：0-4分
+  score: 0 | 1 | 2 | 3 | 4;
   created_at: string;
 }
 
