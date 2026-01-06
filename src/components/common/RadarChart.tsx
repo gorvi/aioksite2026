@@ -9,6 +9,7 @@ import {
     PolarRadiusAxis,
     ResponsiveContainer,
     Legend,
+    Label,
 } from 'recharts';
 
 interface RadarChartProps {
@@ -23,30 +24,26 @@ interface RadarChartProps {
     color?: string;
 }
 
-// 自定义标签组件，显示分数
-const CustomLabel = (props: any) => {
-    const { cx, cy, textAnchor, value, index, payload } = props;
+// 自定义标签渲染函数
+const renderCustomLabel = (props: any) => {
+    const { x, y, value, index } = props;
     
-    // 计算标签位置（在数据点外侧）
-    const RADIAN = Math.PI / 180;
-    const angle = props.angle || 0;
-    const radius = props.outerRadius || 0;
-    
-    // 调整半径，让标签稍微远离数据点
-    const labelRadius = radius + 15;
-    const x = cx + labelRadius * Math.cos(-angle * RADIAN);
-    const y = cy + labelRadius * Math.sin(-angle * RADIAN);
+    // 如果没有值，不显示标签
+    if (value === undefined || value === null) {
+        return null;
+    }
     
     return (
         <text
             x={x}
             y={y}
-            textAnchor={textAnchor}
+            dy={-10}
+            textAnchor="middle"
             fill="#2563eb"
             fontSize="12"
-            fontWeight="bold"
+            fontWeight="700"
         >
-            {value?.toFixed(2)}
+            {value.toFixed(2)}
         </text>
     );
 };
@@ -83,7 +80,8 @@ export default function RadarChartComponent({
                         strokeWidth={2}
                         fill="#3b82f6" // blue-500
                         fillOpacity={0.4}
-                        label={<CustomLabel />}
+                        label={renderCustomLabel}
+                        dot={{ fill: '#2563eb', r: 4 }}
                     />
                     <Legend />
                 </RadarChart>
