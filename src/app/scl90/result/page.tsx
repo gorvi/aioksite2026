@@ -141,7 +141,7 @@ export default function Scl90ResultPage() {
   const radarData = Object.entries(result.factor_scores).map(([key, score]) => ({
     subject: SCL90_DIMENSION_NAMES[key as keyof typeof SCL90_DIMENSION_NAMES],
     A: score,
-    fullMark: 5,
+    fullMark: 4,  // 标准SCL-90：0-4分制
   }));
 
   return (
@@ -213,23 +213,86 @@ export default function Scl90ResultPage() {
 
                 {/* 关键数据展示 - 2列紧凑布局 */}
                 <div className="grid grid-cols-2 gap-3">
-                  {/* 总分 - 占满两列 */}
-                  <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl p-4 text-white shadow-lg col-span-2">
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <div className="text-blue-100 text-xs font-medium mb-1">总分</div>
-                        <div className="flex items-baseline gap-2">
-                          <span className="text-4xl font-bold">{result.raw_total_score || 0}</span>
-                          <span className="text-blue-200 text-xs">/ 450 分</span>
+                  {/* 总分 - 仪表盘样式 */}
+                  <div className="col-span-2">
+                    <div className="relative bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-600 rounded-xl p-6 text-white shadow-xl overflow-hidden">
+                      {/* 背景装饰 */}
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+                      <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+                      
+                      <div className="relative z-10">
+                        <div className="text-blue-100 text-xs font-medium mb-3 flex items-center gap-1">
+                          <span>总分</span>
+                        </div>
+                        
+                        {/* 仪表盘主体 */}
+                        <div className="flex items-center justify-between">
+                          {/* 左侧：半圆仪表盘 */}
+                          <div className="relative w-32 h-20">
+                            {/* 背景半圆 */}
+                            <svg viewBox="0 0 120 60" className="w-full h-full">
+                              {/* 背景轨道 */}
+                              <path
+                                d="M 10 55 A 50 50 0 0 1 110 55"
+                                fill="none"
+                                stroke="rgba(255,255,255,0.2)"
+                                strokeWidth="12"
+                                strokeLinecap="round"
+                              />
+                              {/* 进度弧 */}
+                              <path
+                                d="M 10 55 A 50 50 0 0 1 110 55"
+                                fill="none"
+                                stroke="white"
+                                strokeWidth="12"
+                                strokeLinecap="round"
+                                strokeDasharray={`${((result.raw_total_score || 0) / 360) * 157} 157`}
+                                className="transition-all duration-1000"
+                              />
+                              {/* 指针三角形 */}
+                              <g transform={`rotate(${-90 + ((result.raw_total_score || 0) / 360) * 180} 60 55)`}>
+                                <polygon
+                                  points="60,30 58,55 62,55"
+                                  fill="white"
+                                  opacity="0.9"
+                                />
+                              </g>
+                            </svg>
+                            {/* 中心数值 */}
+                            <div className="absolute inset-0 flex items-end justify-center pb-1">
+                              <div className="text-center">
+                                <div className="text-2xl font-bold leading-none">{result.raw_total_score || 0}</div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* 右侧：分数说明 */}
+                          <div className="flex-1 ml-4">
+                            <div className="flex items-baseline gap-2 mb-1">
+                              <span className="text-4xl font-bold">{result.raw_total_score || 0}</span>
+                              <span className="text-blue-200 text-sm">/ 360 分</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-xs text-blue-100">
+                              <span className="px-2 py-0.5 bg-white/20 rounded">0-4 分制</span>
+                              <span>90题×4分</span>
+                            </div>
+                          </div>
+                          
+                          {/* 装饰图标 */}
+                          <div className="text-5xl opacity-10 absolute right-4 top-4">📊</div>
+                        </div>
+                        
+                        {/* 健康水平文字 */}
+                        <div className="mt-3 pt-3 border-t border-white/20">
+                          <div className="text-xs text-blue-100">
+                            心理健康水平：
+                            <span className="ml-1 font-semibold text-white">
+                              {result.overall_status === 'stable' ? '良好' : 
+                               result.overall_status === 'pressure' ? '一般' : '需关注'}
+                            </span>
+                          </div>
                         </div>
                       </div>
-                      <div className="text-4xl opacity-20">📊</div>
-                    </div>
-                    <div className="mt-3 h-1.5 bg-white/20 rounded-full overflow-hidden">
-                      <div
-                        className="h-full bg-white/60 rounded-full transition-all duration-1000"
-                        style={{ width: `${((result.raw_total_score || 0) / 450) * 100}%` }}
-                      ></div>
                     </div>
                   </div>
 
@@ -242,20 +305,20 @@ export default function Scl90ResultPage() {
                       </div>
                       <div className="text-3xl opacity-20">📈</div>
                     </div>
-                    <div className="text-purple-200 text-xs">1-5 分制</div>
+                    <div className="text-purple-200 text-xs">0-4 分制</div>
                   </div>
 
                   {/* 阳性项目 */}
-                  <div className={`rounded-xl p-4 text-white shadow-lg ${result.attention_items_count > 43
+                  <div className={`rounded-xl p-4 text-white shadow-lg ${(result.positive_items_count || 0) > 43
                     ? 'bg-gradient-to-br from-orange-500 to-red-600'
                     : 'bg-gradient-to-br from-green-500 to-teal-600'
                     }`}>
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex-1">
                         <div className="text-white/90 text-xs font-medium mb-1">阳性项目</div>
-                        <div className="text-3xl font-bold">{result.attention_items_count}</div>
+                        <div className="text-3xl font-bold">{result.positive_items_count || 0}</div>
                       </div>
-                      <div className="text-3xl opacity-20">{result.attention_items_count > 43 ? '⚠️' : '✅'}</div>
+                      <div className="text-3xl opacity-20">{(result.positive_items_count || 0) > 43 ? '⚠️' : '✅'}</div>
                     </div>
                     <div className="text-white/80 text-xs">/ 90 题</div>
                   </div>
@@ -271,7 +334,6 @@ export default function Scl90ResultPage() {
                     <RadarChartComponent
                       data={radarData}
                       height={384}
-                      radius={140}
                     />
                   </div>
                   <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-4">
@@ -288,6 +350,7 @@ export default function Scl90ResultPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {Object.entries(result.factor_scores).map(([key, score]) => {
                       const dimensionName = SCL90_DIMENSION_NAMES[key as keyof typeof SCL90_DIMENSION_NAMES];
+                      // 标准SCL-90阈值（0-4分制）：<2.0正常，2.0-2.5轻度，≥2.5明显
                       const isHigh = score >= 2.5;
                       const isModerate = score >= 2.0 && score < 2.5;
 
@@ -443,7 +506,7 @@ export default function Scl90ResultPage() {
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                variant="ghost"
+                variant="outline"
                 size="lg"
                 className="min-w-[200px]"
                 onClick={() => {
@@ -459,7 +522,7 @@ export default function Scl90ResultPage() {
                 重新测试
               </Button>
               <Button
-                variant="ghost"
+                variant="outline"
                 size="lg"
                 className="min-w-[200px]"
                 onClick={() => {
