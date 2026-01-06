@@ -387,13 +387,13 @@ export default function Scl90ResultPage() {
                 </div>
 
                 {/* 雷达图 */}
-                <Card className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center justify-center gap-2">
+                <Card className="p-4 sm:p-6">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 flex items-center justify-center gap-2">
                     <span className="text-2xl">🎯</span>
                     心理维度分布图
                   </h3>
                   <div className="h-80 sm:h-96 flex items-center justify-center">
-                    <div className="w-full max-w-md">
+                    <div className="w-full sm:max-w-md">
                       <RadarChartComponent
                         data={radarData}
                         height={320}
@@ -406,12 +406,12 @@ export default function Scl90ResultPage() {
                 </Card>
 
                 {/* 因子得分列表 */}
-                <Card className="p-6">
-                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                <Card className="p-4 sm:p-6">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 sm:mb-6 flex items-center gap-2">
                     <span className="text-2xl">🧩</span>
                     各项因子得分
                   </h3>
-                  <div className="space-y-3 max-w-2xl mx-auto">
+                  <div className="space-y-3 w-full sm:max-w-2xl sm:mx-auto">
                     {Object.entries(result.factor_scores).map(([key, score]) => {
                       const dimensionName = SCL90_DIMENSION_NAMES[key as keyof typeof SCL90_DIMENSION_NAMES];
                       // 标准SCL-90阈值（0-4分制）：<2.0正常，2.0-2.5轻度，≥2.5明显
@@ -419,20 +419,20 @@ export default function Scl90ResultPage() {
                       const isModerate = score >= 2.0 && score < 2.5;
 
                       return (
-                        <div key={key} className={`p-4 rounded-xl border-l-4 ${isHigh ? 'bg-red-50 dark:bg-red-900/20 border-red-500' :
+                        <div key={key} className={`p-3 sm:p-4 rounded-xl border-l-4 ${isHigh ? 'bg-red-50 dark:bg-red-900/20 border-red-500' :
                           isModerate ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-500' :
                             'bg-green-50 dark:bg-green-900/20 border-green-500'
                           }`}>
-                          <div className="flex items-center justify-between">
-                            <span className="font-semibold text-slate-900 dark:text-white text-base">{dimensionName}</span>
-                            <div className="flex items-center gap-3">
-                              <span className={`text-2xl font-bold ${isHigh ? 'text-red-600 dark:text-red-400' :
+                          <div className="flex items-center justify-between gap-2">
+                            <span className="font-semibold text-slate-900 dark:text-white text-sm sm:text-base">{dimensionName}</span>
+                            <div className="flex items-center gap-2 sm:gap-3 flex-shrink-0">
+                              <span className={`text-xl sm:text-2xl font-bold ${isHigh ? 'text-red-600 dark:text-red-400' :
                                 isModerate ? 'text-yellow-600 dark:text-yellow-400' :
                                   'text-green-600 dark:text-green-400'
                                 }`}>
                                 {score.toFixed(2)}
                               </span>
-                              <span className={`text-xs px-3 py-1 rounded-full font-medium ${isHigh ? 'bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300' :
+                              <span className={`text-xs px-2 sm:px-3 py-1 rounded-full font-medium whitespace-nowrap ${isHigh ? 'bg-red-100 text-red-700 dark:bg-red-900/50 dark:text-red-300' :
                                 isModerate ? 'bg-yellow-100 text-yellow-700 dark:bg-yellow-900/50 dark:text-yellow-300' :
                                   'bg-green-100 text-green-700 dark:bg-green-900/50 dark:text-green-300'
                                 }`}>
