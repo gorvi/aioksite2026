@@ -392,15 +392,15 @@ export default function Scl90ResultPage() {
                     <span className="text-2xl">🎯</span>
                     心理维度分布图
                   </h3>
-                  <div className="h-80 sm:h-96 flex items-center justify-center">
-                    <div className="w-full sm:max-w-md">
+                  <div className="w-full flex items-center justify-center">
+                    <div className="w-full max-w-md mx-auto">
                       <RadarChartComponent
                         data={radarData}
-                        height={320}
+                        height={360}
                       />
                     </div>
                   </div>
-                  <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-6">
+                  <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-4">
                     蓝色区域越大，表示该维度的困扰程度越高
                   </p>
                 </Card>

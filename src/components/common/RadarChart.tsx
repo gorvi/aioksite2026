@@ -23,6 +23,34 @@ interface RadarChartProps {
     color?: string;
 }
 
+// 自定义标签组件，显示分数
+const CustomLabel = (props: any) => {
+    const { cx, cy, textAnchor, value, index, payload } = props;
+    
+    // 计算标签位置（在数据点外侧）
+    const RADIAN = Math.PI / 180;
+    const angle = props.angle || 0;
+    const radius = props.outerRadius || 0;
+    
+    // 调整半径，让标签稍微远离数据点
+    const labelRadius = radius + 15;
+    const x = cx + labelRadius * Math.cos(-angle * RADIAN);
+    const y = cy + labelRadius * Math.sin(-angle * RADIAN);
+    
+    return (
+        <text
+            x={x}
+            y={y}
+            textAnchor={textAnchor}
+            fill="#2563eb"
+            fontSize="12"
+            fontWeight="bold"
+        >
+            {value?.toFixed(2)}
+        </text>
+    );
+};
+
 export default function RadarChartComponent({
     data,
     width = '100%',
@@ -55,6 +83,7 @@ export default function RadarChartComponent({
                         strokeWidth={2}
                         fill="#3b82f6" // blue-500
                         fillOpacity={0.4}
+                        label={<CustomLabel />}
                     />
                     <Legend />
                 </RadarChart>
