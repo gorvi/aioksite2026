@@ -7,7 +7,7 @@ import Button from '@/components/common/Button';
 import Header from '@/components/common/Header';
 
 export default function Home() {
-  const [activeTab, setActiveTab] = useState<'scl90' | 'adhd'>('scl90');
+  const [activeTab, setActiveTab] = useState<'scl90' | 'adhd' | 'city_personality'>('scl90');
 
   const knowledgeData = {
     scl90: {
@@ -32,7 +32,19 @@ export default function Home() {
         { icon: "speed", label: "执行特质", desc: "规划与启动任务的节奏" },
         { icon: "auto_stories", label: "思维跃动", desc: "天马行空的联想能力" }
       ],
-      usage: "如果你常觉得“明明想做却动不起来”，或者生活总是在“极度专注”与“极度涣散”间切换，这份测评将为你提供一个新的理解坐标。"
+      usage: "如果你常觉得'明明想做却动不起来'，或者生活总是在'极度专注'与'极度涣散'间切换，这份测评将为你提供一个新的理解坐标。"
+    },
+    city_personality: {
+      title: "关于城市性格测试",
+      subtitle: "发现你与城市的精神契合",
+      description: "基于经典MBTI人格理论，通过36道精心设计的问题，探索你的性格特质与全国34个主要城市的匹配度。每座城市都有其独特的性格气质，找到与你最契合的那一个。",
+      highlights: [
+        { icon: "location_city", label: "城市匹配", desc: "34个省会城市的性格画像" },
+        { icon: "psychology_alt", label: "MBTI理论", desc: "四个维度的科学性格分析" },
+        { icon: "explore", label: "个性洞察", desc: "深度了解自己的性格特质" },
+        { icon: "map", label: "生活指导", desc: "为人生选择提供新的视角" }
+      ],
+      usage: "无论你是在考虑城市发展，还是单纯想了解自己的性格特质，这个测试都能为你提供有趣且有价值的洞察。通过MBTI维度分析，发现最适合你的城市气质。"
     }
   };
 
@@ -68,7 +80,7 @@ export default function Home() {
         {/* Test Selection Section - Prominent & Compact */}
         <section id="test-selection" className="pb-8">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
               {/* SCL-90 测试卡片 */}
               <Card className="p-0 overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 group">
                 <div className="flex flex-col h-full">
@@ -134,12 +146,45 @@ export default function Home() {
                   </div>
                 </div>
               </Card>
+
+              {/* 城市性格测试卡片 */}
+              <Card className="p-0 overflow-hidden border-none shadow-lg hover:shadow-2xl transition-all duration-300 group">
+                <div className="flex flex-col h-full">
+                  <div className="p-6 bg-gradient-to-br from-purple-50/50 via-white to-transparent dark:from-purple-900/10 dark:via-slate-900 flex-grow">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-purple-600 text-white shadow-lg shadow-purple-200 dark:shadow-none flex items-center justify-center group-hover:scale-110 transition-transform">
+                        <span className="material-symbols-outlined text-2xl">location_city</span>
+                      </div>
+                      <span className="px-2 py-0.5 rounded-md bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-200 text-[10px] font-bold uppercase">城市匹配</span>
+                    </div>
+                    <h3 className="text-xl font-bold mb-2 text-slate-900 dark:text-white">城市性格测试</h3>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 leading-snug mb-4 line-clamp-2">
+                      基于MBTI理论，发现你的性格与城市的完美契合。
+                    </p>
+                    <div className="flex gap-4">
+                      <div className="flex items-center gap-1 text-[11px] text-slate-400">
+                        <span className="material-symbols-outlined text-sm">timer</span> 15min
+                      </div>
+                      <div className="flex items-center gap-1 text-[11px] text-slate-400">
+                        <span className="material-symbols-outlined text-sm">quiz</span> 36题
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-4 bg-white dark:bg-slate-800 border-t border-slate-50 dark:border-slate-700">
+                    <Link href="/city-personality/nickname">
+                      <Button variant="primary" className="w-full rounded-xl font-bold py-5 shadow-md shadow-purple-500/10 bg-purple-600 hover:bg-purple-700 border-purple-600">
+                        开启探索之旅
+                      </Button>
+                    </Link>
+                  </div>
+                </div>
+              </Card>
             </div>
 
             {/* More Coming Soon - Inline & Quiet */}
             <div className="mt-8 text-center">
               <p className="text-[11px] text-slate-400 dark:text-slate-500 bg-slate-50 dark:bg-slate-800/50 inline-block px-4 py-1.5 rounded-full border border-slate-100 dark:border-slate-800">
-                更多自测维度持续更新：MBTI、压力感、内在色彩...
+                更多自测维度持续更新：九型人格、压力感、内在色彩...
               </p>
             </div>
           </div>
@@ -173,6 +218,15 @@ export default function Home() {
                     }`}
                 >
                   ADHD 科普
+                </button>
+                <button
+                  onClick={() => setActiveTab('city_personality')}
+                  className={`flex-1 py-3 px-4 rounded-xl text-sm font-bold transition-all ${activeTab === 'city_personality'
+                    ? 'bg-white dark:bg-slate-800 text-purple-600 dark:text-purple-400 shadow-sm'
+                    : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                    }`}
+                >
+                  城市性格 科普
                 </button>
               </div>
 

@@ -117,3 +117,111 @@ export interface AdhdAnswer {
   created_at: string;
 }
 
+// 城市性格测试相关
+export interface CityPersonalityTest {
+  id: number;
+  serial_number: string;
+  nickname?: string | null;
+  report_number?: string | null;
+  
+  // 核心结果（存储到数据库）
+  mbti_type: string; // MBTI类型，如：ENFP
+  matched_city: string; // 匹配的城市名称
+  match_percentage: number; // 匹配百分比（0-100）
+  
+  // 维度得分（用于统计分析）
+  e_i_score: number; // 外向/内向得分（9-18）
+  s_n_score: number; // 实感/直觉得分（9-18）
+  t_f_score: number; // 思考/情感得分（9-18）
+  j_p_score: number; // 判断/感知得分（9-18）
+  
+  test_date: string;
+  created_at: string;
+  updated_at: string;
+  deleted_at: string | null;
+}export interface CityPersonalityAnswer {
+  id: number;
+  test_id: number;
+  question_number: number; // 题目编号（1-36）
+  dimension: 'E_I' | 'S_N' | 'T_F' | 'J_P'; // MBTI维度
+  answer_option: 'A' | 'B'; // 选择的选项
+  score: 1 | 2; // 选项得分（A=1, B=2）
+  created_at: string;
+}
+
+// 城市性格测试结果（包含实时生成的详细信息）
+export interface CityPersonalityResult extends CityPersonalityTest {
+  // 实时生成的详细信息（不存数据库）
+  personality_tags: string[]; // 性格标签
+  city_description?: string; // 城市描述
+  detailed_analysis?: string; // 详细分析
+  city_features?: string[]; // 城市特色
+  dimension_scores?: {
+    E_I: number;
+    S_N: number;
+    T_F: number;
+    J_P: number;
+  };
+}
+
+// 城市性格问题类型（用于前端显示）
+export interface CityPersonalityQuestion {
+  id: number;
+  dimension: 'E_I' | 'S_N' | 'T_F' | 'J_P';
+  text: string;
+  options: {
+    id: 'A' | 'B';
+    text: string;
+    score: 1 | 2;
+  }[];
+}
+
+// 城市配置类型
+export interface CityConfig {
+  id: string;
+  name: string;
+  nickname?: string;
+  tags: string[];
+  personalityTypes: string[];
+  description: string;
+  detailedFeatures: string[];
+  matchingThresholds: {
+    [mbtiType: string]: number;
+  };
+  colorTheme: {
+    primary: string;
+    secondary: string;
+    accent?: string;
+  };
+}
+
+// 城市描述类型
+export interface CityDescription {
+  welcome: string;
+  lifestyle: string;
+  culture: string;
+  advantages: string;
+  suitable: string;
+  conclusion: string;
+}
+
+// 维度得分类型
+export interface DimensionScores {
+  E_I: number;  // 外向/内向得分
+  S_N: number;  // 实感/直觉得分
+  T_F: number;  // 思考/情感得分
+  J_P: number;  // 判断/感知得分
+}
+
+// 测试提交数据类型
+export interface CityPersonalitySubmitData {
+  serial_number: string;
+  nickname: string;
+  answers: {
+    questionId: number;
+    questionNumber: number;
+    dimension: 'E_I' | 'S_N' | 'T_F' | 'J_P';
+    answerOption: 'A' | 'B';
+    score: 1 | 2;
+  }[];
+}

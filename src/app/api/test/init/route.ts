@@ -4,7 +4,7 @@ import { RowDataPacket, ResultSetHeader } from 'mysql2';
 
 export async function POST(request: NextRequest) {
     try {
-        const { nickname, type } = await request.json(); // type: 'adhd' | 'scl90'
+        const { nickname, type } = await request.json(); // type: 'adhd' | 'scl90' | 'city_personality'
 
         if (!nickname || !type) {
             return NextResponse.json(
@@ -13,7 +13,9 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const table = type === 'adhd' ? 'adhd_tests' : 'scl90_tests';
+        const table = type === 'adhd' ? 'adhd_tests' : 
+                      type === 'scl90' ? 'scl90_tests' : 
+                      'city_personality_tests'; // 新增城市性格测试支持
         const connection = await pool.getConnection();
 
         try {

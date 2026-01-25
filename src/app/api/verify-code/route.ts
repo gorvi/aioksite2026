@@ -4,7 +4,7 @@ import { RowDataPacket } from 'mysql2';
 
 export async function POST(request: NextRequest) {
     try {
-        const { code } = await request.json();
+        const { code, markAsUsed = true } = await request.json();
 
         if (!code) {
             return NextResponse.json(
@@ -43,11 +43,13 @@ export async function POST(request: NextRequest) {
                 );
             }
 
-            // 2. 标记为已使用
-            await connection.query(
-                'UPDATE serial_numbers SET status = 1, used_at = NOW() WHERE id = ?',
-                [serial.id]
-            );
+            // 2. 如果 markAsUsed 为 true，标记为已使用；否则只验证不标记
+            if (markAsUsed) {
+                await connection.query(
+                    'UPDATE serial_numbers SET status = 1, used_at = NOW() WHERE id = ?',
+                    [serial.id]
+                );
+            }
 
             await connection.commit();
 

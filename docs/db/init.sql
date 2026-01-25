@@ -30,21 +30,7 @@ CREATE TABLE IF NOT EXISTS `scl90_tests` (
   INDEX `idx_deleted_at` (`deleted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='SCL-90测试记录表';
 
--- 3. SCL-90 答题记录表
-CREATE TABLE IF NOT EXISTS `scl90_answers` (
-  `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键ID',
-  `test_id` INT UNSIGNED NOT NULL COMMENT '测试记录ID',
-  `question_number` TINYINT UNSIGNED NOT NULL COMMENT '题目编号（1-90）',
-  `dimension` VARCHAR(50) NOT NULL COMMENT '所属维度',
-  `answer` TINYINT UNSIGNED NOT NULL COMMENT '答案：1-没有，2-很轻，3-中等，4-偏重，5-严重',
-  `score` TINYINT UNSIGNED NOT NULL COMMENT '得分（1-5）',
-  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  INDEX `idx_test_id` (`test_id`),
-  INDEX `idx_question_number` (`question_number`),
-  FOREIGN KEY (`test_id`) REFERENCES `scl90_tests`(`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='SCL-90答题记录表';
-
--- 4. ADHD 测试记录表
+-- 3. ADHD 测试记录表
 CREATE TABLE IF NOT EXISTS `adhd_tests` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键ID',
   `serial_number` VARCHAR(64) NULL COMMENT '序列号',
@@ -66,20 +52,35 @@ CREATE TABLE IF NOT EXISTS `adhd_tests` (
   INDEX `idx_deleted_at` (`deleted_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='ADHD测试记录表';
 
--- 5. ADHD 答题记录表
-CREATE TABLE IF NOT EXISTS `adhd_answers` (
+-- 4. 城市性格测试记录表（采用JSON存储，参考ADHD测试模式）
+CREATE TABLE IF NOT EXISTS `city_personality_tests` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY COMMENT '主键ID',
-  `test_id` INT UNSIGNED NOT NULL COMMENT '测试记录ID',
-  `question_number` TINYINT UNSIGNED NOT NULL COMMENT '题目编号',
-  `dimension` VARCHAR(50) NOT NULL COMMENT '所属维度：attention-注意力，execution-执行力，hyperactivity-多动冲动',
-  `stage` VARCHAR(20) NULL COMMENT '阶段（仅完整版）：asrs-成年现状，wurs-童年回溯',
-  `answer` TINYINT UNSIGNED NOT NULL COMMENT '答案：0-从不，1-很少，2-有时，3-经常，4-总是',
-  `score` TINYINT UNSIGNED NOT NULL COMMENT '得分（0-4）',
+  `serial_number` VARCHAR(64) NULL COMMENT '序列号',
+  `nickname` VARCHAR(50) DEFAULT NULL COMMENT '用户昵称',
+  
+  -- 核心结果字段
+  `mbti_type` VARCHAR(4) NOT NULL COMMENT 'MBTI性格类型（如：ENFP）',
+  `matched_city` VARCHAR(20) NOT NULL COMMENT '匹配城市名称',
+  `match_percentage` TINYINT UNSIGNED NOT NULL COMMENT '匹配百分比（0-100）',
+  
+  -- JSON存储详细结果（参考adhd_tests表结构）
+  `dimension_scores` JSON NOT NULL COMMENT '4个维度得分（JSON格式）',
+  `personality_tags` JSON NOT NULL COMMENT '性格标签（JSON格式）',
+  `test_results` JSON NOT NULL COMMENT '完整测试结果（JSON格式）',
+  
+  -- 系统字段
+  `test_date` DATETIME NOT NULL COMMENT '测试日期',
   `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  INDEX `idx_test_id` (`test_id`),
-  INDEX `idx_question_number` (`question_number`),
-  FOREIGN KEY (`test_id`) REFERENCES `adhd_tests`(`id`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='ADHD答题记录表';
+  `updated_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '更新时间',
+  `deleted_at` DATETIME NULL COMMENT '删除时间（软删除，用于限时保存）',
+  
+  -- 索引
+  INDEX `idx_serial_number` (`serial_number`),
+  INDEX `idx_mbti_type` (`mbti_type`),
+  INDEX `idx_matched_city` (`matched_city`),
+  INDEX `idx_test_date` (`test_date`),
+  INDEX `idx_deleted_at` (`deleted_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='城市性格测试记录表';
 
 -- 插入测试数据（可选）
 -- 插入一个测试序列号
