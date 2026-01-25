@@ -3,6 +3,8 @@
  * 为每个城市提供个性化的描述文案
  */
 
+import { getCityMatchingReason } from './city-matching-reasons';
+
 export interface CityDescription {
   welcome: string;      // 欢迎语
   lifestyle: string;    // 生活方式描述
@@ -10,6 +12,7 @@ export interface CityDescription {
   advantages: string;   // 优势特点
   suitable: string;     // 适合人群
   conclusion: string;   // 总结
+  matchingReason: string; // 详细的匹配原因说明（结合性格标签和城市特点）
 }
 
 export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
@@ -19,7 +22,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '从紫禁城的雄伟壮丽到胡同里的烟火气息，从国家大剧院的高雅艺术到三里屯的时尚前沿，北京将满足你对文化底蕴的所有想象。',
     advantages: '作为政治中心，这里聚集了最优质的教育、医疗、文化资源。无论是事业发展还是个人成长，都能找到最佳的平台。',
     suitable: '你的性格特质决定了你适合在权力中心感受历史的厚重，在激烈竞争中实现人生价值。',
-    conclusion: '北京不只是一座城市，更是一种人生态度——志存高远，脚踏实地。'
+    conclusion: '北京不只是一座城市，更是一种人生态度——志存高远，脚踏实地。',
+    matchingReason: getCityMatchingReason('北京')
   },
 
   上海: {
@@ -28,7 +32,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '中西文化在这里完美融合，传统与现代在这里和谐共存。你将在这座城市中感受到真正的国际化视野。',
     advantages: '作为金融中心，上海提供了无数商业机会。时尚前沿的生活方式，让你始终走在潮流的最前端。',
     suitable: '你追求品质生活，注重外在形象，有着敏锐的商业嗅觉和国际化思维。',
-    conclusion: '在上海，你不只是生活，而是在创造一种生活方式的艺术。'
+    conclusion: '在上海，你不只是生活，而是在创造一种生活方式的艺术。',
+    matchingReason: getCityMatchingReason('上海')
   },
 
   天津: {
@@ -37,7 +42,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '从古文化街的传统工艺到意式风情区的异域建筑，从狗不理包子到麻花酥脆，天津用幽默和包容拥抱每一个人。',
     advantages: '作为重要港口城市，经济发达而房价相对适中。教育资源丰富，生活压力相对较小。',
     suitable: '你务实包容，有着天然的幽默感，既重视传统文化，又能接受新鲜事物。',
-    conclusion: '天津让你在快节奏的现代生活中，依然能保持一份难得的从容和幽默。'
+    conclusion: '天津让你在快节奏的现代生活中，依然能保持一份难得的从容和幽默。',
+    matchingReason: getCityMatchingReason('天津')
   },
 
   重庆: {
@@ -46,7 +52,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '火锅文化让每顿饭都成为社交盛宴，川江文化培育出直爽豪迈的性格。这里的人情味浓得化不开。',
     advantages: '作为西部重要城市，发展机遇众多。美食天堂的称号绝非浪得虚名，生活成本适中，幸福指数很高。',
     suitable: '你性格直爽，热爱社交，享受热闹的氛围，重视友情和人际关系。',
-    conclusion: '重庆教会你：生活就应该像火锅一样，热气腾腾，有滋有味！'
+    conclusion: '重庆教会你：生活就应该像火锅一样，热气腾腾，有滋有味！',
+    matchingReason: getCityMatchingReason('重庆')
   },
 
   成都: {
@@ -55,7 +62,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '从杜甫草堂的诗意到武侯祠的历史，从大熊猫的可爱到川剧的精彩，成都用慢节奏诠释着生活的真谛。',
     advantages: '这里有着得天独厚的自然环境，丰富的美食文化，相对较低的生活成本，是宜居城市的典型代表。',
     suitable: '你追求工作生活平衡，重视生活品质，喜欢文艺范儿的生活方式，不愿意在高压环境中生活。',
-    conclusion: '成都告诉你：生活不必太匆忙，慢下来才能感受到人生的美好。'
+    conclusion: '成都告诉你：生活不必太匆忙，慢下来才能感受到人生的美好。',
+    matchingReason: getCityMatchingReason('成都')
   },
 
   杭州: {
@@ -64,7 +72,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '从白娘子的传说到苏东坡的诗词，从丝绸文化到茶道精髓，杭州将古典雅韵与现代科技完美融合。',
     advantages: '作为互联网之都，这里创新氛围浓厚，机会众多。优美的自然环境和良好的空气质量，让生活质量大大提升。',
     suitable: '你文艺清新，有品味有情调，既追求精神世界的丰富，又不缺乏现代生活的便利。',
-    conclusion: '在杭州，你将过上真正的"诗和远方"的生活，在美景中成就最好的自己。'
+    conclusion: '在杭州，你将过上真正的"诗和远方"的生活，在美景中成就最好的自己。',
+    matchingReason: getCityMatchingReason('杭州')
   },
 
   广州: {
@@ -73,7 +82,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '粤语文化的深厚底蕴，早茶文化的精致生活，商贸文化的开放包容，让广州成为最具人情味的国际化都市。',
     advantages: '作为千年商都，商业机会无处不在。包容的城市文化让每个追梦人都能找到属于自己的位置。',
     suitable: '你务实低调，既有进取心又重视生活品质，善于在激烈竞争中保持内心的平和。',
-    conclusion: '广州用实际行动证明：真正的成功不在于张扬，而在于踏实做事，用心生活。'
+    conclusion: '广州用实际行动证明：真正的成功不在于张扬，而在于踏实做事，用心生活。',
+    matchingReason: getCityMatchingReason('广州')
   },
 
   深圳: {
@@ -82,7 +92,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '移民城市的包容性让每个人都能快速融入，科技创新的基因让这座城市始终保持年轻活力。',
     advantages: '完善的产业链，丰富的就业机会，公平的竞争环境，让每一个有梦想的人都能在这里实现价值。',
     suitable: '你敢拼敢闯，适应能力强，追求效率和结果，在变化中寻找机遇。',
-    conclusion: '深圳证明了：只要你足够努力，足够优秀，这座城市就会给你足够的回报。'
+    conclusion: '深圳证明了：只要你足够努力，足够优秀，这座城市就会给你足够的回报。',
+    matchingReason: getCityMatchingReason('深圳')
   },
 
   西安: {
@@ -91,7 +102,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '十三朝古都的底蕴，丝绸之路的起点，从兵马俑的震撼到大雁塔的庄严，每一处都诉说着千年文明。',
     advantages: '教育资源丰富，文化氛围浓厚，生活成本适中。在这里既能感受历史文化的熏陶，又能享受现代生活的便利。',
     suitable: '你重视文化底蕴，喜欢历史传统，追求精神世界的丰富，工作生活平衡。',
-    conclusion: '西安让你明白：一个人的格局，往往取决于他所处城市的文化厚度。'
+    conclusion: '西安让你明白：一个人的格局，往往取决于他所处城市的文化厚度。',
+    matchingReason: getCityMatchingReason('西安')
   },
 
   武汉: {
@@ -100,7 +112,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '楚文化的浪漫，江湖文化的豪迈，教育文化的深厚，让武汉成为中部地区最具活力的城市。',
     advantages: '地理位置优越，交通四通八达，高等教育资源全国领先，是中部崛起的重要引擎。',
     suitable: '你有着豪爽的性格，重视教育和文化，既能吃苦又能享受，适应能力强。',
-    conclusion: '武汉告诉你：人生如江水，有时波澜壮阔，有时平静如镜，关键是要保持向前的勇气。'
+    conclusion: '武汉告诉你：人生如江水，有时波澜壮阔，有时平静如镜，关键是要保持向前的勇气。',
+    matchingReason: getCityMatchingReason('武汉')
   },
 
   南京: {
@@ -109,7 +122,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '六朝古都的历史积淀，现代都市的发展活力，让南京在传统与现代间找到了完美平衡。',
     advantages: '教育资源丰富，文化底蕴深厚，长三角核心位置带来无限发展机遇。',
     suitable: '你有着深厚的文化素养，重视教育和知识，既能欣赏传统文化之美，又能拥抱现代生活的便利。',
-    conclusion: '南京用六朝的底蕴告诉你：真正的优雅，来自于内心的文化积淀。'
+    conclusion: '南京用六朝的底蕴告诉你：真正的优雅，来自于内心的文化积淀。',
+    matchingReason: getCityMatchingReason('南京')
   },
 
   长沙: {
@@ -118,7 +132,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '湖湘文化的深厚底蕴，娱乐产业的蓬勃发展，让长沙成为年轻人最喜爱的城市之一。',
     advantages: '房价相对合理，生活成本较低，娱乐资源丰富，是性价比极高的宜居城市。',
     suitable: '你热爱美食，喜欢娱乐，追求性价比，重视生活的快乐和轻松。',
-    conclusion: '长沙证明了：生活的意义不在于赚多少钱，而在于过得多快乐！'
+    conclusion: '长沙证明了：生活的意义不在于赚多少钱，而在于过得多快乐！',
+    matchingReason: getCityMatchingReason('长沙')
   },
 
   昆明: {
@@ -127,7 +142,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '多民族文化的交融，创造出独特的云南风情。从滇池的壮阔到西山的秀美，自然与文化在这里完美结合。',
     advantages: '宜人的气候条件，良好的生态环境，相对较低的生活压力，是理想的宜居城市。',
     suitable: '你追求宜居环境，喜欢自然风光，重视生活质量，不愿在高压环境中生活。',
-    conclusion: '昆明用四季如春的温度告诉你：生活最美好的状态就是岁月静好，现世安稳。'
+    conclusion: '昆明用四季如春的温度告诉你：生活最美好的状态就是岁月静好，现世安稳。',
+    matchingReason: getCityMatchingReason('昆明')
   },
 
   哈尔滨: {
@@ -136,7 +152,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '俄式建筑的异域风情，冰雪文化的独特魅力，音乐传统的深厚底蕴，让哈尔滨充满艺术气息。',
     advantages: '独特的文化氛围，良好的教育环境，相对较低的生活成本，是追求艺术生活的理想之地。',
     suitable: '你有着浪漫的气质，喜欢艺术和音乐，能够欣赏独特的文化风情，追求精神世界的富足。',
-    conclusion: '哈尔滨用冰雪的纯洁告诉你：最美的生活，就是在寒冷中保持心灵的温暖。'
+    conclusion: '哈尔滨用冰雪的纯洁告诉你：最美的生活，就是在寒冷中保持心灵的温暖。',
+    matchingReason: getCityMatchingReason('哈尔滨')
   },
 
   // 为了简化，我会为剩余城市提供简化版本的描述
@@ -146,7 +163,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '深厚的历史文化底蕴与现代发展相结合，形成独特的城市气质。',
     advantages: '交通便利，发展潜力大，生活成本适中，是务实发展的好选择。',
     suitable: '你踏实稳重，重视实际，追求稳定而有潜力的发展环境。',
-    conclusion: '石家庄告诉你：最好的成功，就是在稳中求进中实现人生价值。'
+    conclusion: '石家庄告诉你：最好的成功，就是在稳中求进中实现人生价值。',
+    matchingReason: getCityMatchingReason('石家庄')
   },
 
   太原: {
@@ -155,7 +173,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '三晋文化的传承，煤炭工业的发展历程，形成了独特的城市性格。',
     advantages: '历史文化资源丰富，能源工业发达，生活节奏适中。',
     suitable: '你重视传统文化，喜欢稳定的生活环境，有着深厚的文化底蕴。',
-    conclusion: '太原用历史的厚重告诉你：真正的财富是文化的积淀。'
+    conclusion: '太原用历史的厚重告诉你：真正的财富是文化的积淀。',
+    matchingReason: getCityMatchingReason('太原')
   },
 
   沈阳: {
@@ -164,7 +183,8 @@ export const CITY_DESCRIPTIONS: Record<string, CityDescription> = {
     culture: '满族文化的底蕴，工业文明的传承，形成了独特的城市文化。',
     advantages: '工业基础雄厚，人情味浓厚，生活成本相对较低。',
     suitable: '你性格豪迈直爽，重视人际关系，适合在工业氛围中发展。',
-    conclusion: '沈阳告诉你：人生最重要的是真情实意，踏实做事。'
+    conclusion: '沈阳告诉你：人生最重要的是真情实意，踏实做事。',
+    matchingReason: getCityMatchingReason('沈阳')
   }
 
   // 可以继续为其他城市添加描述...

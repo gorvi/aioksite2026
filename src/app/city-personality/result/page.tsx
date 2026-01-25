@@ -301,6 +301,24 @@ export default function CityPersonalityResultPage() {
               </Card>
             )}
 
+            {/* 匹配原因 */}
+            {cityDescription?.matchingReason && (
+              <Card>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 flex items-center">
+                    <span className="text-2xl mr-3">💡</span>
+                    为什么是{result.matchedCity}？
+                  </h3>
+                  
+                  <div className="prose dark:prose-invert max-w-none">
+                    <div className="text-gray-700 dark:text-gray-300 leading-relaxed text-base">
+                      {cityDescription.matchingReason}
+                    </div>
+                  </div>
+                </div>
+              </Card>
+            )}
+
             {/* 详细分析 */}
             {cityDescription && (
               <Card>
