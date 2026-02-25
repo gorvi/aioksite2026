@@ -1,0 +1,2 @@
+# 请在 AdMob 后台获取你的 app-ads.txt 内容并替换此文件
+# 格式示例: google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, XXXXXXXXXXXXXXXX
